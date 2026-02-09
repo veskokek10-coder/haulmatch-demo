@@ -17,6 +17,237 @@ body {
   min-height: 100vh;
   color: white;
   background:
+    linear-gradient(rgba(8,12,28,0.75), rgba(8,12,28,0.85)),
+    url("https://images.unsplash.com/photo-1603398938378-e54f1fa4efda?auto=format&fit=crop&w=1920&q=80");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+/* HEADER */
+header {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+header h1 {
+  font-size: 3.2rem;
+  font-weight: 800;
+}
+
+header p {
+  margin-top: 10px;
+  opacity: 0.9;
+}
+
+/* HERO */
+.hero {
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.hero h2 {
+  font-size: 1.4rem;
+  margin-bottom: 25px;
+  opacity: 0.95;
+}
+
+.buttons {
+  display: flex;
+  gap: 18px;
+}
+
+.btn {
+  padding: 14px 32px;
+  border-radius: 12px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+}
+
+.driver {
+  background: #22c55e;
+}
+
+.company {
+  background: #60a5fa;
+}
+
+/* REVIEWS */
+.reviews {
+  padding: 80px 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.review {
+  background: rgba(255,255,255,0.12);
+  backdrop-filter: blur(10px);
+  border-radius: 18px;
+  padding: 20px;
+}
+
+.review-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.review-header img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.stars {
+  color: gold;
+  font-size: 0.9rem;
+}
+
+.review p {
+  font-size: 0.95rem;
+  line-height: 1.4;
+  opacity: 0.95;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>HaulMatch</h1>
+  <p>The fastest way for trucking companies and drivers to connect nationwide</p>
+</header>
+
+<section class="hero">
+  <h2>Find loads. Hire drivers. Move freight — faster.</h2>
+  <div class="buttons">
+    <button class="btn driver">I’m a Driver</button>
+    <button class="btn company">I’m a Company</button>
+  </div>
+</section>
+
+<section class="reviews">
+  <div class="review">
+    <div class="review-header">
+      <img src="https://randomuser.me/api/portraits/men/32.jpg">
+      <div>
+        <strong>Mike Thompson</strong>
+        <div class="stars">★★★★★</div>
+      </div>
+    </div>
+    <p>
+      I found a regional driving job in under 48 hours. Pay was higher than
+      anything I saw on Indeed or job boards. HaulMatch actually understands trucking.
+    </p>
+  </div>
+
+  <div class="review">
+    <div class="review-header">
+      <img src="https://randomuser.me/api/portraits/women/44.jpg">
+      <div>
+        <strong>Sarah Lopez</strong>
+        <div class="stars">★★★★★</div>
+      </div>
+    </div>
+    <p>
+      Way better than Facebook groups. No spam, no fake listings.
+      Everything is trucking-focused and simple to use.
+    </p>
+  </div>
+
+  <div class="review">
+    <div class="review-header">
+      <img src="https://randomuser.me/api/portraits/men/76.jpg">
+      <div>
+        <strong>James R.</strong>
+        <div class="stars">★★★★★</div>
+      </div>
+    </div>
+    <p>
+      I applied to two companies and got calls the same week.
+      This platform saves serious time.
+    </p>
+  </div>
+
+  <div class="review">
+    <div class="review-header">
+      <img src="https://randomuser.me/api/portraits/men/51.jpg">
+      <div>
+        <strong>Fleet Owner</strong>
+        <div class="stars">★★★★★</div>
+      </div>
+    </div>
+    <p>
+      We hired two qualified drivers in one week and saved thousands
+      in recruiter fees. The ROI is obvious.
+    </p>
+  </div>
+
+  <div class="review">
+    <div class="review-header">
+      <img src="https://randomuser.me/api/portraits/women/65.jpg">
+      <div>
+        <strong>Linda Parker</strong>
+        <div class="stars">★★★★★</div>
+      </div>
+    </div>
+    <p>
+      Clean interface, real people, and real trucking jobs.
+      I recommend HaulMatch to every driver I know.
+    </p>
+  </div>
+
+  <div class="review">
+    <div class="review-header">
+      <img src="https://randomuser.me/api/portraits/men/83.jpg">
+      <div>
+        <strong>David M.</strong>
+        <div class="stars">★★★★★</div>
+      </div>
+    </div>
+    <p>
+      Finally a platform built for trucking — not generic job postings.
+      The quality of companies here is much higher.
+    </p>
+  </div>
+</section>
+
+</body>
+</html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>HaulMatch</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  color: white;
+  background:
     linear-gradient(rgba(10,15,35,0.75), rgba(10,15,35,0.85)),
     url("https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1920&q=80");
   background-size: cover;
