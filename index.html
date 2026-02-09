@@ -18,27 +18,19 @@ html, body {
   overflow-x: hidden;
 }
 
-/* BACKGROUND */
+/* ✅ GUARANTEED SEMI-TRUCK BACKGROUND */
 body {
-  background-image: url("https://images.unsplash.com/photo-1611095786924-7d6c59d4f64c");
+  background:
+    linear-gradient(rgba(10,20,45,0.72), rgba(10,20,45,0.72)),
+    url("https://images.unsplash.com/photo-1601918774946-25832a4be0d6");
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
   color: white;
 }
 
-/* OVERLAY */
-.overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(10, 20, 45, 0.72);
-  z-index: 0;
-}
-
 /* HEADER */
 header {
-  position: relative;
-  z-index: 2;
   padding: 24px 40px;
   font-size: 26px;
   font-weight: 800;
@@ -56,8 +48,6 @@ header {
 
 /* HERO */
 .hero {
-  position: relative;
-  z-index: 2;
   text-align: center;
   margin-top: 110px;
   padding: 0 20px;
@@ -70,13 +60,13 @@ header {
 
 .hero p {
   max-width: 760px;
-  margin: 0 auto 16px;
+  margin: 0 auto 14px;
   font-size: 18px;
 }
 
 .hero .sub {
   max-width: 720px;
-  margin: 0 auto 42px;
+  margin: 0 auto 40px;
   font-size: 16px;
   opacity: 0.9;
 }
@@ -107,11 +97,9 @@ header {
   color: #0b1230;
 }
 
-/* REVIEWS (NO BACKGROUND) */
+/* REVIEWS */
 .reviews {
-  position: relative;
-  z-index: 2;
-  margin-top: 150px;
+  margin-top: 160px;
   padding: 0 60px 140px;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -146,8 +134,6 @@ header {
 </head>
 
 <body>
-
-<div class="overlay"></div>
 
 <header>
   <div class="logo-dot"></div>
@@ -196,8 +182,8 @@ header {
       <img src="https://randomuser.me/api/portraits/men/65.jpg">
       <div><strong>James R. — Fleet Owner</strong><br><span class="stars">★★★★★</span></div>
     </div>
-    We hired two qualified drivers within a week. It saved us time and eliminated the
-    noise of traditional hiring sites.
+    We hired two qualified drivers within a week. It saved us time and eliminated
+    the noise of traditional hiring sites.
   </div>
 
   <div class="review">
@@ -205,8 +191,7 @@ header {
       <img src="https://randomuser.me/api/portraits/men/12.jpg">
       <div><strong>Daniel K. — Regional Driver</strong><br><span class="stars">★★★★★</span></div>
     </div>
-    Pay, routes, and expectations were clear from the start. No guessing, no chasing
-    people for answers.
+    Pay, routes, and expectations were clear from the start.
   </div>
 
   <div class="review">
@@ -214,8 +199,7 @@ header {
       <img src="https://randomuser.me/api/portraits/women/22.jpg">
       <div><strong>Amanda P. — Operations Manager</strong><br><span class="stars">★★★★★</span></div>
     </div>
-    We found drivers who actually matched our company culture. Conversations felt
-    professional and serious.
+    We found drivers who actually matched our company culture.
   </div>
 
 </section>
