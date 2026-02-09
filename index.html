@@ -17,34 +17,12 @@
       min-height: 100vh;
       color: white;
       overflow-x: hidden;
-    }
-
-    /* VIDEO BACKGROUND */
-    .video-bg {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: -2;
-      overflow: hidden;
-    }
-
-    .video-bg video {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    /* DARK OVERLAY */
-    .overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(10, 14, 30, 0.65);
-      z-index: -1;
+      background:
+        linear-gradient(rgba(10,14,30,0.65), rgba(10,14,30,0.65)),
+        url("https://images.unsplash.com/photo-1606857521015-7f9fcf68bb8e?auto=format&fit=crop&w=1920&q=80");
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
     }
 
     header {
@@ -151,15 +129,6 @@
 
 <body>
 
-  <!-- VIDEO BACKGROUND -->
-  <div class="video-bg">
-    <video autoplay muted loop playsinline>
-      <source src="freightliner.mp4" type="video/mp4">
-    </video>
-  </div>
-
-  <div class="overlay"></div>
-
   <header>
     <span>■</span> HaulMatch
   </header>
@@ -241,3 +210,4 @@
 
 </body>
 </html>
+
