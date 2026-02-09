@@ -18,7 +18,7 @@ html, body {
   overflow-x: hidden;
 }
 
-/* BACKGROUND (UNCHANGED) */
+/* BACKGROUND */
 body {
   background-image: url("https://images.unsplash.com/photo-1601584115197-04ecc0da31d7");
   background-size: cover;
@@ -27,7 +27,7 @@ body {
   color: white;
 }
 
-/* DARK OVERLAY */
+/* OVERLAY */
 .overlay {
   position: fixed;
   inset: 0;
@@ -81,7 +81,7 @@ header {
   opacity: 0.9;
 }
 
-/* BUTTONS */
+/* BUTTONS (UNCHANGED) */
 .buttons {
   display: flex;
   justify-content: center;
@@ -95,12 +95,6 @@ header {
   font-weight: 700;
   border: none;
   cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.btn:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 14px 34px rgba(0,0,0,0.4);
 }
 
 .driver {
@@ -113,89 +107,34 @@ header {
   color: #0b1230;
 }
 
-/* SMALL FADED TRUCK */
-.truck-lane {
-  position: relative;
-  z-index: 2;
-  margin-top: 160px;
-  height: 40px;
-  overflow: hidden;
-}
-
-.truck {
-  position: absolute;
-  left: -220px;
-  top: 6px;
-  display: flex;
-  align-items: center;
-  opacity: 0;
-  animation: drive 14s linear infinite;
-}
-
-.cab {
-  width: 42px;
-  height: 20px;
-  background: #e53935;
-  border-radius: 4px;
-}
-
-.trailer {
-  width: 96px;
-  height: 18px;
-  background: #e0e0e0;
-  margin-left: 4px;
-  border-radius: 3px;
-}
-
-.wheel {
-  width: 8px;
-  height: 8px;
-  background: #111;
-  border-radius: 50%;
-  position: absolute;
-  bottom: -4px;
-}
-
-.w1 { left: 8px; }
-.w2 { left: 24px; }
-.w3 { left: 66px; }
-.w4 { left: 82px; }
-
-@keyframes drive {
-  0%   { left: -220px; opacity: 0; }
-  10%  { opacity: 0.7; }
-  90%  { opacity: 0.7; }
-  100% { left: 110%; opacity: 0; }
-}
-
-/* REVIEWS — MOVED LOWER */
+/* REVIEWS — MOVED DOWN */
 .reviews {
   position: relative;
   z-index: 2;
-  margin-top: 120px;
-  padding: 120px 60px 140px;
+  margin-top: 160px; /* pushed down ~1 inch */
+  padding: 130px 60px 160px;
   background: rgba(0,0,0,0.45);
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 34px;
 }
 
 .review {
   background: rgba(255,255,255,0.14);
-  padding: 24px;
-  border-radius: 18px;
+  padding: 28px;
+  border-radius: 20px;
 }
 
 .review-header {
   display: flex;
   align-items: center;
-  gap: 12px;
-  margin-bottom: 10px;
+  gap: 14px;
+  margin-bottom: 14px;
 }
 
 .review-header img {
-  width: 48px;
-  height: 48px;
+  width: 52px;
+  height: 52px;
   border-radius: 50%;
 }
 
@@ -222,7 +161,8 @@ header {
     professional drivers with verified trucking companies.
   </p>
   <p class="sub">
-    No job boards. No spam. Just real matches between drivers and companies.
+    No job boards. No spam. Just real connections between drivers looking for
+    long-term work and companies hiring dependable professionals.
   </p>
 
   <div class="buttons">
@@ -231,66 +171,64 @@ header {
   </div>
 </section>
 
-<!-- SMALL FADED TRUCK ~1 INCH ABOVE REVIEWS -->
-<div class="truck-lane">
-  <div class="truck">
-    <div class="cab"></div>
-    <div class="trailer"></div>
-    <div class="wheel w1"></div>
-    <div class="wheel w2"></div>
-    <div class="wheel w3"></div>
-    <div class="wheel w4"></div>
-  </div>
-</div>
-
 <section class="reviews">
+
   <div class="review">
     <div class="review-header">
       <img src="https://randomuser.me/api/portraits/men/32.jpg">
-      <div><strong>Mike T.</strong><br><span class="stars">★★★★★</span></div>
+      <div><strong>Mike T. — CDL-A Driver</strong><br><span class="stars">★★★★★</span></div>
     </div>
-    Found a regional job in under 48 hours.
+    I was tired of job boards full of expired listings. On HaulMatch, I connected
+    directly with a regional carrier that matched my experience and home-time
+    needs. No recruiters, no pressure — just real conversations.
   </div>
 
   <div class="review">
     <div class="review-header">
       <img src="https://randomuser.me/api/portraits/women/44.jpg">
-      <div><strong>Sarah L.</strong><br><span class="stars">★★★★★</span></div>
+      <div><strong>Sarah L. — Owner Operator</strong><br><span class="stars">★★★★★</span></div>
     </div>
-    Clean platform built for real drivers.
+    This platform actually understands trucking. I spoke directly with fleet
+    managers instead of filling out endless applications. Found a contract that
+    fits my operation perfectly.
   </div>
 
   <div class="review">
     <div class="review-header">
       <img src="https://randomuser.me/api/portraits/men/65.jpg">
-      <div><strong>Fleet Owner</strong><br><span class="stars">★★★★★</span></div>
+      <div><strong>James R. — Fleet Owner</strong><br><span class="stars">★★★★★</span></div>
     </div>
-    Hired two drivers in one week.
+    We hired two qualified drivers within a week. HaulMatch saved us time, money,
+    and eliminated the noise we deal with on traditional hiring sites.
   </div>
 
   <div class="review">
     <div class="review-header">
       <img src="https://randomuser.me/api/portraits/men/12.jpg">
-      <div><strong>James R.</strong><br><span class="stars">★★★★★</span></div>
+      <div><strong>Daniel K. — Regional Driver</strong><br><span class="stars">★★★★★</span></div>
     </div>
-    Finally something better than job boards.
+    What I liked most was transparency. Pay, routes, and expectations were clear
+    from the start. I wasn’t guessing or chasing people for answers.
   </div>
 
   <div class="review">
     <div class="review-header">
       <img src="https://randomuser.me/api/portraits/women/22.jpg">
-      <div><strong>Amanda K.</strong><br><span class="stars">★★★★★</span></div>
+      <div><strong>Amanda P. — Operations Manager</strong><br><span class="stars">★★★★★</span></div>
     </div>
-    Recruiting made simple.
+    We found drivers who actually matched our company culture. The conversations
+    felt professional and serious — not like scrolling through random resumes.
   </div>
 
   <div class="review">
     <div class="review-header">
       <img src="https://randomuser.me/api/portraits/men/81.jpg">
-      <div><strong>Robert D.</strong><br><span class="stars">★★★★★</span></div>
+      <div><strong>Robert D. — OTR Driver</strong><br><span class="stars">★★★★★</span></div>
     </div>
-    Legit companies. Legit drivers.
+    I signed up expecting another job board. This was different. Companies reached
+    out knowing my experience and preferences. That alone made it worth it.
   </div>
+
 </section>
 
 </body>
