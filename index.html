@@ -1,77 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>HaulMatch</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
-    * {
+    html, body {
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
-      font-family: Arial, Helvetica, sans-serif;
+      width: 100%;
+      height: 100%;
     }
 
     body {
-      min-height: 100vh;
-      color: white;
-      overflow-x: hidden;
-      background:
-        linear-gradient(rgba(10,14,30,0.65), rgba(10,14,30,0.65)),
-        url("https://images.unsplash.com/photo-1606857521015-7f9fcf68bb8e?auto=format&fit=crop&w=1920&q=80");
+      background-image: url("https://images.unsplash.com/photo-1603791440384-56cd371ee9a7?auto=format&fit=crop&w=1920&q=80");
       background-size: cover;
       background-position: center;
+      background-repeat: no-repeat;
       background-attachment: fixed;
+      font-family: Arial, Helvetica, sans-serif;
+      color: white;
     }
 
-    header {
-      padding: 24px 40px;
-      font-size: 26px;
-      font-weight: bold;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    header span {
-      color: #4ade80;
-    }
-
-    .hero {
-      min-height: 70vh;
+    .content {
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       text-align: center;
-      padding: 40px 20px;
+      background: rgba(0,0,0,0.45);
     }
 
-    .hero h1 {
-      font-size: 52px;
-      margin-bottom: 16px;
+    h1 {
+      font-size: 56px;
+      margin-bottom: 12px;
     }
 
-    .hero p {
-      max-width: 760px;
+    p {
       font-size: 18px;
-      margin-bottom: 28px;
-      opacity: 0.95;
+      max-width: 700px;
+      margin-bottom: 30px;
     }
 
     .buttons {
       display: flex;
-      gap: 14px;
+      gap: 16px;
     }
 
-    .btn {
-      padding: 14px 30px;
-      border-radius: 10px;
+    button {
+      padding: 14px 28px;
       font-size: 16px;
       font-weight: bold;
-      cursor: pointer;
+      border-radius: 8px;
       border: none;
+      cursor: pointer;
     }
 
     .driver {
@@ -83,57 +67,11 @@
       background: #7aa2ff;
       color: black;
     }
-
-    .reviews {
-      max-width: 1200px;
-      margin: 80px auto;
-      padding: 0 20px 80px;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 24px;
-    }
-
-    .review {
-      background: rgba(255,255,255,0.12);
-      padding: 22px;
-      border-radius: 16px;
-    }
-
-    .review-header {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 10px;
-    }
-
-    .review-header img {
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      object-fit: cover;
-    }
-
-    .stars {
-      color: gold;
-      margin-bottom: 8px;
-    }
-
-    footer {
-      text-align: center;
-      padding: 30px;
-      font-size: 14px;
-      opacity: 0.6;
-    }
   </style>
 </head>
 
 <body>
-
-  <header>
-    <span>■</span> HaulMatch
-  </header>
-
-  <section class="hero">
+  <div class="content">
     <h1>HaulMatch</h1>
     <p>
       The fastest way for trucking companies and professional drivers to connect,
@@ -141,73 +79,9 @@
     </p>
 
     <div class="buttons">
-      <button class="btn driver">I'm a Driver</button>
-      <button class="btn company">I'm a Company</button>
+      <button class="driver">I'm a Driver</button>
+      <button class="company">I'm a Company</button>
     </div>
-  </section>
-
-  <section class="reviews">
-
-    <div class="review">
-      <div class="review-header">
-        <img src="https://randomuser.me/api/portraits/men/32.jpg">
-        <strong>Mike T. — CDL Driver</strong>
-      </div>
-      <div class="stars">★★★★★</div>
-      Found a regional lane in under 48 hours. Pay was higher than anything I saw on job boards.
-    </div>
-
-    <div class="review">
-      <div class="review-header">
-        <img src="https://randomuser.me/api/portraits/women/44.jpg">
-        <strong>Sarah L. — Owner Operator</strong>
-      </div>
-      <div class="stars">★★★★★</div>
-      Way better than Indeed or Facebook groups. Everything is trucking-focused.
-    </div>
-
-    <div class="review">
-      <div class="review-header">
-        <img src="https://randomuser.me/api/portraits/men/65.jpg">
-        <strong>James R. — Fleet Owner</strong>
-      </div>
-      <div class="stars">★★★★★</div>
-      Hired two qualified drivers in one week and saved thousands in recruiter fees.
-    </div>
-
-    <div class="review">
-      <div class="review-header">
-        <img src="https://randomuser.me/api/portraits/men/41.jpg">
-        <strong>Daniel K. — Regional Driver</strong>
-      </div>
-      <div class="stars">★★★★★</div>
-      No scams, no nonsense. Real loads and real dispatchers.
-    </div>
-
-    <div class="review">
-      <div class="review-header">
-        <img src="https://randomuser.me/api/portraits/women/29.jpg">
-        <strong>Amanda P. — Logistics Manager</strong>
-      </div>
-      <div class="stars">★★★★★</div>
-      We filled three trucks faster than any recruiting platform we’ve used.
-    </div>
-
-    <div class="review">
-      <div class="review-header">
-        <img src="https://randomuser.me/api/portraits/men/77.jpg">
-        <strong>Chris W. — OTR Driver</strong>
-      </div>
-      <div class="stars">★★★★★</div>
-      Signed up and had offers the same day. No recruiters blowing up my phone.
-    </div>
-
-  </section>
-
-  <footer>
-    © 2026 HaulMatch — Built for drivers and fleets
-  </footer>
-
+  </div>
 </body>
 </html>
-
