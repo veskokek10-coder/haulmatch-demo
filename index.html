@@ -1,226 +1,207 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>HaulMatch</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8" />
+<title>HaulMatch</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: Inter, Arial, sans-serif;
-    }
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
 
-    body {
-      min-height: 100vh;
-      background-image: url("https://images.unsplash.com/photo-1605648916361-9bc12adf0e32");
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      color: white;
-    }
+html, body {
+  height: 100%;
+  overflow-x: hidden;
+}
 
-    /* Dark overlay */
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      background: rgba(10, 14, 30, 0.75);
-      z-index: -1;
-    }
+/* BACKGROUND LAYER */
+.bg {
+  position: fixed;
+  inset: 0;
+  background-image: url("https://images.unsplash.com/photo-1590490360182-c33d57733427");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: -2;
+}
 
-    header {
-      padding: 30px 60px;
-      display: flex;
-      align-items: center;
-      font-size: 26px;
-      font-weight: 800;
-    }
+/* DARK OVERLAY */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 15, 30, 0.7);
+  z-index: -1;
+}
 
-    .logo-dot {
-      width: 14px;
-      height: 14px;
-      background: #5cff5c;
-      border-radius: 4px;
-      margin-right: 10px;
-    }
+header {
+  padding: 30px 50px;
+  color: white;
+  font-size: 26px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+}
 
-    .hero {
-      text-align: center;
-      margin-top: 120px;
-      padding: 0 20px;
-    }
+.logo-dot {
+  width: 14px;
+  height: 14px;
+  background: #4cd964;
+  border-radius: 4px;
+  margin-right: 10px;
+}
 
-    .hero h1 {
-      font-size: 56px;
-      margin-bottom: 16px;
-    }
+.hero {
+  text-align: center;
+  margin-top: 140px;
+  padding: 0 20px;
+  color: white;
+}
 
-    .hero p {
-      font-size: 18px;
-      max-width: 700px;
-      margin: 0 auto 40px;
-      line-height: 1.5;
-      opacity: 0.9;
-    }
+.hero h1 {
+  font-size: 56px;
+  margin-bottom: 16px;
+}
 
-    .buttons {
-      display: flex;
-      justify-content: center;
-      gap: 16px;
-      margin-bottom: 140px;
-    }
+.hero p {
+  max-width: 720px;
+  margin: 0 auto 40px;
+  font-size: 18px;
+  line-height: 1.5;
+}
 
-    .btn {
-      padding: 16px 28px;
-      border-radius: 10px;
-      font-size: 16px;
-      font-weight: 600;
-      border: none;
-      cursor: pointer;
-    }
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 120px;
+}
 
-    .btn-driver {
-      background: #4cd964;
-      color: black;
-    }
+.btn {
+  padding: 16px 30px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+}
 
-    .btn-company {
-      background: #6fa8ff;
-      color: black;
-    }
+.driver {
+  background: #4cd964;
+}
 
-    .reviews {
-      background: rgba(0, 0, 0, 0.4);
-      padding: 80px 60px;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 30px;
-    }
+.company {
+  background: #6fa8ff;
+}
 
-    .review {
-      background: rgba(255,255,255,0.1);
-      padding: 24px;
-      border-radius: 14px;
-      backdrop-filter: blur(6px);
-    }
+.reviews {
+  padding: 80px 60px;
+  background: rgba(0,0,0,0.45);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+  color: white;
+}
 
-    .review-header {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      margin-bottom: 12px;
-    }
+.review {
+  background: rgba(255,255,255,0.12);
+  padding: 24px;
+  border-radius: 14px;
+}
 
-    .review-header img {
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      object-fit: cover;
-    }
+.review-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
 
-    .stars {
-      color: gold;
-      font-size: 14px;
-    }
+.review-header img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+}
 
-    .review p {
-      font-size: 14px;
-      line-height: 1.4;
-      opacity: 0.95;
-    }
-  </style>
+.stars {
+  color: gold;
+  font-size: 14px;
+}
+</style>
 </head>
 
 <body>
 
-  <header>
-    <div class="logo-dot"></div>
-    HaulMatch
-  </header>
+<!-- BACKGROUND -->
+<div class="bg"></div>
+<div class="overlay"></div>
 
-  <section class="hero">
-    <h1>HaulMatch</h1>
-    <p>
-      The fastest way for trucking companies and professional drivers to connect,
-      book freight, and move loads nationwide — without job boards or middlemen.
-    </p>
+<header>
+  <div class="logo-dot"></div>
+  HaulMatch
+</header>
 
-    <div class="buttons">
-      <button class="btn btn-driver">I’m a Driver</button>
-      <button class="btn btn-company">I’m a Company</button>
+<section class="hero">
+  <h1>HaulMatch</h1>
+  <p>The fastest way for trucking companies and professional drivers to connect and move freight nationwide.</p>
+
+  <div class="buttons">
+    <button class="btn driver">I’m a Driver</button>
+    <button class="btn company">I’m a Company</button>
+  </div>
+</section>
+
+<section class="reviews">
+  <div class="review">
+    <div class="review-header">
+      <img src="https://randomuser.me/api/portraits/men/32.jpg">
+      <div><strong>Mike T.</strong><br><span class="stars">★★★★★</span></div>
     </div>
-  </section>
+    Found a regional lane in under 48 hours.
+  </div>
 
-  <section class="reviews">
-    <div class="review">
-      <div class="review-header">
-        <img src="https://randomuser.me/api/portraits/men/32.jpg">
-        <div>
-          <strong>Mike T.</strong><br>
-          <span class="stars">★★★★★</span>
-        </div>
-      </div>
-      <p>Found a dedicated regional lane in under 48 hours. Pay was higher than anything I saw on Indeed or Facebook.</p>
+  <div class="review">
+    <div class="review-header">
+      <img src="https://randomuser.me/api/portraits/women/44.jpg">
+      <div><strong>Sarah L.</strong><br><span class="stars">★★★★★</span></div>
     </div>
+    Clean platform built for real drivers.
+  </div>
 
-    <div class="review">
-      <div class="review-header">
-        <img src="https://randomuser.me/api/portraits/women/44.jpg">
-        <div>
-          <strong>Sarah L.</strong><br>
-          <span class="stars">★★★★★</span>
-        </div>
-      </div>
-      <p>This platform actually understands trucking. No spam, no recruiters blowing up my phone.</p>
+  <div class="review">
+    <div class="review-header">
+      <img src="https://randomuser.me/api/portraits/men/65.jpg">
+      <div><strong>Fleet Owner</strong><br><span class="stars">★★★★★</span></div>
     </div>
+    Hired two drivers in one week.
+  </div>
 
-    <div class="review">
-      <div class="review-header">
-        <img src="https://randomuser.me/api/portraits/men/65.jpg">
-        <div>
-          <strong>Fleet Owner</strong><br>
-          <span class="stars">★★★★★</span>
-        </div>
-      </div>
-      <p>Hired two qualified drivers in a week. Saved thousands compared to traditional recruiting services.</p>
+  <div class="review">
+    <div class="review-header">
+      <img src="https://randomuser.me/api/portraits/men/12.jpg">
+      <div><strong>James R.</strong><br><span class="stars">★★★★★</span></div>
     </div>
+    Finally something better than job boards.
+  </div>
 
-    <div class="review">
-      <div class="review-header">
-        <img src="https://randomuser.me/api/portraits/men/12.jpg">
-        <div>
-          <strong>James R.</strong><br>
-          <span class="stars">★★★★★</span>
-        </div>
-      </div>
-      <p>Finally a platform built for owner-operators. Clean, fast, and legit freight opportunities.</p>
+  <div class="review">
+    <div class="review-header">
+      <img src="https://randomuser.me/api/portraits/women/22.jpg">
+      <div><strong>Amanda K.</strong><br><span class="stars">★★★★★</span></div>
     </div>
+    Recruiting made simple.
+  </div>
 
-    <div class="review">
-      <div class="review-header">
-        <img src="https://randomuser.me/api/portraits/women/22.jpg">
-        <div>
-          <strong>Amanda K.</strong><br>
-          <span class="stars">★★★★★</span>
-        </div>
-      </div>
-      <p>We filled open seats faster than ever. This replaced three other job boards for us.</p>
+  <div class="review">
+    <div class="review-header">
+      <img src="https://randomuser.me/api/portraits/men/81.jpg">
+      <div><strong>Robert D.</strong><br><span class="stars">★★★★★</span></div>
     </div>
-
-    <div class="review">
-      <div class="review-header">
-        <img src="https://randomuser.me/api/portraits/men/81.jpg">
-        <div>
-          <strong>Robert D.</strong><br>
-          <span class="stars">★★★★★</span>
-        </div>
-      </div>
-      <p>Legit freight, legit companies. No scams, no nonsense. This is the future of trucking hiring.</p>
-    </div>
-  </section>
+    Legit freight. Legit companies.
+  </div>
+</section>
 
 </body>
 </html>
