@@ -10,44 +10,29 @@ html, body {
   margin: 0;
   padding: 0;
   height: 100%;
-}
-
-body {
   font-family: Arial, Helvetica, sans-serif;
-  overflow-x: hidden;
-  color: white;
-  background: #0f172a;
 }
 
-/* ===== BACKGROUND VIDEO EFFECT ===== */
-.background {
+/* ===== VIDEO BACKGROUND ===== */
+.video-bg {
   position: fixed;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
-    url("https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1920&q=80");
-  background-size: cover;
-  background-position: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   z-index: -3;
 }
 
-/* ===== TRUCK ANIMATION ===== */
-.truck {
+/* Dark overlay for readability */
+.overlay {
   position: fixed;
-  bottom: 8%;
-  left: -300px;
-  width: 280px;
-  animation: drive 18s linear infinite;
-  z-index: -1;
-  opacity: 0.95;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: -2;
 }
 
-@keyframes drive {
-  0% { left: -300px; }
-  100% { left: 110%; }
-}
-
-/* ===== UI ===== */
+/* ===== MAIN CONTENT ===== */
 .container {
   min-height: 100vh;
   display: flex;
@@ -56,6 +41,7 @@ body {
   align-items: center;
   text-align: center;
   padding: 30px;
+  color: white;
 }
 
 h1 {
@@ -66,8 +52,10 @@ h1 {
 p {
   max-width: 700px;
   font-size: 1.2rem;
+  line-height: 1.6;
 }
 
+/* ===== BUTTONS ===== */
 .buttons button {
   padding: 14px 30px;
   font-size: 1rem;
@@ -78,15 +66,23 @@ p {
   margin: 10px;
 }
 
-.driver { background: #22c55e; color: black; }
-.company { background: #38bdf8; color: black; }
+.driver {
+  background-color: #22c55e;
+  color: black;
+}
 
+.company {
+  background-color: #38bdf8;
+  color: black;
+}
+
+/* ===== AUTH CARD ===== */
 .card {
   background: rgba(255,255,255,0.15);
   backdrop-filter: blur(12px);
   border-radius: 16px;
   padding: 25px;
-  max-width: 350px;
+  max-width: 360px;
   width: 100%;
 }
 
@@ -108,7 +104,9 @@ input {
   cursor: pointer;
 }
 
-.hidden { display: none; }
+.hidden {
+  display: none;
+}
 
 /* ===== REVIEWS ===== */
 .reviews {
@@ -140,17 +138,20 @@ input {
   margin-right: 12px;
 }
 
-.stars { color: gold; }
+.stars {
+  color: gold;
+}
 </style>
 </head>
 
 <body>
 
-<div class="background"></div>
+<!-- 🚛 TRUCK HIGHWAY VIDEO BACKGROUND -->
+<video class="video-bg" autoplay muted loop playsinline>
+  <source src="https://cdn.coverr.co/videos/coverr-truck-driving-on-the-highway-8459/1080p.mp4" type="video/mp4">
+</video>
 
-<img class="truck"
-src="https://pngimg.com/uploads/truck/truck_PNG16268.png"
-alt="Truck driving">
+<div class="overlay"></div>
 
 <div class="container">
 
@@ -226,7 +227,7 @@ function goHome() {
 }
 
 function login() {
-  alert("Demo login successful! (Firebase comes next)");
+  alert("Demo login successful! Real accounts coming next.");
 }
 </script>
 
