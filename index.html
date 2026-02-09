@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
+<meta charset="UTF-8" />
 <title>HaulMatch</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 <style>
 * {
@@ -16,18 +16,28 @@
 html, body {
   height: 100%;
   overflow-x: hidden;
+  color: white;
 }
 
-/* 🔒 PERMANENT SEMI TRUCK BACKGROUND */
-body {
-  background:
-    linear-gradient(rgba(10,18,40,0.75), rgba(10,18,40,0.75)),
-    url("https://upload.wikimedia.org/wikipedia/commons/6/6f/Freightliner_Cascadia_Truck.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: scroll;
-  color: white;
+/* BACKGROUND IMAGE – THIS WILL NOT DISAPPEAR */
+.bg-truck {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+}
+
+.bg-truck img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* DARK OVERLAY */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(10,18,40,0.75);
+  z-index: -1;
 }
 
 /* HEADER */
@@ -87,7 +97,7 @@ header {
 
 .btn {
   padding: 16px 46px;
-  border-radius: 22px;
+  border-radius: 24px;
   font-size: 16px;
   font-weight: 700;
   border: none;
@@ -113,7 +123,7 @@ header {
 /* REVIEWS */
 .reviews {
   width: 100%;
-  padding: 60px 60px 80px;
+  padding: 40px 60px 80px;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 26px;
@@ -148,6 +158,12 @@ header {
 
 <body>
 
+<!-- HARD-LOCKED SEMI TRUCK -->
+<div class="bg-truck">
+  <img src="https://images.pexels.com/photos/2199293/pexels-photo-2199293.jpeg" alt="Semi Truck">
+</div>
+<div class="overlay"></div>
+
 <header>
   <div class="logo-dot"></div>
   HaulMatch
@@ -179,8 +195,7 @@ header {
       <img src="https://randomuser.me/api/portraits/men/32.jpg">
       <div><strong>Mike T. — CDL-A Driver</strong><br><span class="stars">★★★★★</span></div>
     </div>
-    HaulMatch connected me directly with a carrier that respected my experience and
-    home-time needs.
+    Connected with a carrier that respected my experience and home-time needs.
   </div>
 
   <div class="review">
@@ -188,7 +203,7 @@ header {
       <img src="https://randomuser.me/api/portraits/women/44.jpg">
       <div><strong>Sarah L. — Owner Operator</strong><br><span class="stars">★★★★★</span></div>
     </div>
-    Finally a platform that understands trucking. No recruiters, no spam.
+    Finally a platform that understands trucking.
   </div>
 
   <div class="review">
@@ -196,7 +211,7 @@ header {
       <img src="https://randomuser.me/api/portraits/men/65.jpg">
       <div><strong>James R. — Fleet Owner</strong><br><span class="stars">★★★★★</span></div>
     </div>
-    We hired two drivers in under a week. Straight to the point.
+    Two drivers hired in under a week.
   </div>
 
   <div class="review">
@@ -204,15 +219,15 @@ header {
       <img src="https://randomuser.me/api/portraits/men/12.jpg">
       <div><strong>Daniel K. — Regional Driver</strong><br><span class="stars">★★★★★</span></div>
     </div>
-    Clear pay, clear routes, no guessing games.
+    Clear pay, clear routes, no guessing.
   </div>
 
   <div class="review">
     <div class="review-header">
       <img src="https://randomuser.me/api/portraits/women/22.jpg">
-      <div><strong>Amanda P. — Operations Manager</strong><br><span class="stars">★★★★★</span></div>
+      <div><strong>Amanda P. — Ops Manager</strong><br><span class="stars">★★★★★</span></div>
     </div>
-    Drivers we matched with actually fit our company.
+    Drivers actually matched our culture.
   </div>
 
 </section>
