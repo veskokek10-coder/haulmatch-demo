@@ -6,25 +6,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <style>
-    * {
-      box-sizing: border-box;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, sans-serif;
-    }
-
-    body {
+    /* FORCE CACHE BUST */
+    body.semi-bg-v1 {
       margin: 0;
       min-height: 100vh;
       color: white;
 
-      /* FIXED SEMI TRUCK BACKGROUND — NEVER CHANGES */
+      /* GUARANTEED SEMI TRUCK IMAGE (NO CARS) */
       background:
-        linear-gradient(rgba(14,18,35,0.78), rgba(14,18,35,0.92)),
-        url("https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=2400&q=80");
+        linear-gradient(rgba(14,18,35,0.8), rgba(14,18,35,0.95)),
+        url("https://upload.wikimedia.org/wikipedia/commons/3/3b/Freightliner_Cascadia_on_I-80.jpg");
 
       background-size: cover;
       background-position: center center;
       background-repeat: no-repeat;
       background-attachment: fixed;
+    }
+
+    * {
+      box-sizing: border-box;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, sans-serif;
     }
 
     header {
@@ -62,8 +63,7 @@
       flex-direction: column;
       align-items: center;
       text-align: center;
-      padding-left: 20px;
-      padding-right: 20px;
+      padding: 0 20px;
     }
 
     h1 {
@@ -94,7 +94,6 @@
       cursor: pointer;
       transition: all 0.25s ease;
       text-decoration: none;
-      display: inline-block;
     }
 
     .btn.driver {
@@ -102,19 +101,9 @@
       color: #06220f;
     }
 
-    .btn.driver:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 12px 28px rgba(74,222,128,0.45);
-    }
-
     .btn.company {
       background: #818cf8;
       color: #0b0f3b;
-    }
-
-    .btn.company:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 12px 28px rgba(129,140,248,0.45);
     }
 
     .reviews {
@@ -128,15 +117,11 @@
     }
 
     @media (max-width: 1000px) {
-      .reviews {
-        grid-template-columns: repeat(2, 1fr);
-      }
+      .reviews { grid-template-columns: repeat(2, 1fr); }
     }
 
     @media (max-width: 600px) {
-      .reviews {
-        grid-template-columns: 1fr;
-      }
+      .reviews { grid-template-columns: 1fr; }
     }
 
     .review {
@@ -144,33 +129,20 @@
       backdrop-filter: blur(12px);
       border-radius: 18px;
       padding: 22px;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.4);
-    }
-
-    .review-header {
-      font-weight: 700;
-      margin-bottom: 6px;
-      font-size: 14px;
     }
 
     .stars {
       color: #facc15;
       font-size: 14px;
-      margin-bottom: 10px;
-    }
-
-    .review p {
-      font-size: 14px;
-      line-height: 1.55;
-      opacity: 0.95;
+      margin-bottom: 8px;
     }
   </style>
 </head>
 
-<body>
+<body class="semi-bg-v1">
 
 <header>
-  <a href="index.html">
+  <a href="#">
     <div class="logo-dot"></div>
     HaulMatch
   </a>
@@ -182,9 +154,8 @@
   <p class="subtitle">
     A hiring platform built specifically for the trucking industry — connecting
     professional drivers with verified trucking companies.
-    <br /><br />
-    No job boards. No spam. Just real connections between drivers looking for
-    long-term work and companies hiring dependable professionals.
+    <br><br>
+    No job boards. No spam. Just real connections between drivers and carriers.
   </p>
 
   <div class="buttons">
@@ -194,39 +165,27 @@
 
   <div class="reviews">
     <div class="review">
-      <div class="review-header">Mike T. — CDL-A Driver</div>
+      <strong>Mike T. — CDL-A Driver</strong>
       <div class="stars">★★★★★</div>
-      <p>
-        HaulMatch connected me directly with a regional carrier that fit my
-        experience and home-time needs. No recruiters, no spam.
-      </p>
+      HaulMatch connected me directly with a regional carrier. No recruiters.
     </div>
 
     <div class="review">
-      <div class="review-header">Sarah L. — Owner Operator</div>
+      <strong>Sarah L. — Owner Operator</strong>
       <div class="stars">★★★★★</div>
-      <p>
-        I spoke directly with fleet managers and secured a contract that fit my
-        operation perfectly. This platform actually understands trucking.
-      </p>
+      This platform actually understands trucking.
     </div>
 
     <div class="review">
-      <div class="review-header">James R. — Fleet Owner</div>
+      <strong>James R. — Fleet Owner</strong>
       <div class="stars">★★★★★</div>
-      <p>
-        We hired two qualified drivers within a week. No wasted time — just
-        serious candidates.
-      </p>
+      Two qualified drivers hired in one week.
     </div>
 
     <div class="review">
-      <div class="review-header">Daniel K. — Regional Driver</div>
+      <strong>Daniel K. — Regional Driver</strong>
       <div class="stars">★★★★★</div>
-      <p>
-        Pay, routes, and expectations were clear from day one. HaulMatch is the
-        best trucking platform I’ve used.
-      </p>
+      Best trucking hiring platform I’ve used.
     </div>
   </div>
 </section>
