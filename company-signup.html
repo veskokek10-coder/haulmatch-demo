@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Company Signup – HaulMatch</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, sans-serif;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: white;
+      background:
+        linear-gradient(rgba(15,20,40,0.85), rgba(15,20,40,0.95));
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px 40px;
+      display: flex;
+      align-items: center;
+      z-index: 10;
+    }
+
+    header a {
+      text-decoration: none;
+      color: white;
+      font-weight: 800;
+      font-size: 22px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-dot {
+      width: 12px;
+      height: 12px;
+      background: #4ade80;
+      border-radius: 3px;
+    }
+
+    .container {
+      min-height: 100vh;
+      padding-top: 140px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    .card {
+      width: 100%;
+      max-width: 520px;
+      background: rgba(255,255,255,0.14);
+      backdrop-filter: blur(14px);
+      border-radius: 20px;
+      padding: 36px;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.45);
+    }
+
+    h1 {
+      margin-top: 0;
+      margin-bottom: 8px;
+      text-align: center;
+    }
+
+    .subtitle {
+      text-align: center;
+      font-size: 14px;
+      opacity: 0.9;
+      margin-bottom: 30px;
+    }
+
+    label {
+      display: block;
+      font-size: 13px;
+      margin-bottom: 6px;
+      margin-top: 16px;
+      opacity: 0.9;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 12px 14px;
+      border-radius: 10px;
+      border: none;
+      font-size: 14px;
+    }
+
+    input:focus, select:focus {
+      outline: 2px solid #818cf8;
+    }
+
+    button {
+      margin-top: 28px;
+      width: 100%;
+      padding: 14px;
+      border-radius: 999px;
+      border: none;
+      font-size: 16px;
+      font-weight: 700;
+      background: #818cf8;
+      color: #0b0f3b;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px rgba(129,140,248,0.4);
+    }
+
+    .note {
+      margin-top: 16px;
+      font-size: 12px;
+      opacity: 0.8;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <a href="index.html">
+    <div class="logo-dot"></div>
+    HaulMatch
+  </a>
+</header>
+
+<div class="container">
+  <div class="card">
+    <h1>Company Signup</h1>
+    <p class="subtitle">
+      Hire verified drivers directly. No recruiters. No spam.
+    </p>
+
+    <form id="companySignupForm">
+      <label>Company Name</label>
+      <input type="text" placeholder="ABC Logistics LLC" required />
+
+      <label>Contact Name</label>
+      <input type="text" placeholder="John Smith" required />
+
+      <label>Email</label>
+      <input type="email" placeholder="contact@company.com" required />
+
+      <label>Phone Number</label>
+      <input type="tel" placeholder="(555) 555-5555" required />
+
+      <label>DOT / MC Number</label>
+      <input type="text" placeholder="Optional but recommended" />
+
+      <label>Company Type</label>
+      <select required>
+        <option value="">Select one</option>
+        <option>Carrier</option>
+        <option>Fleet Owner</option>
+        <option>Owner Operator</option>
+        <option>Broker</option>
+      </select>
+
+      <label>Password</label>
+      <input type="password" placeholder="Create a password" required />
+
+      <button type="submit">Create Company Account</button>
+
+      <div class="note">
+        Already have an account? Login will be available after launch.
+      </div>
+    </form>
+  </div>
+</div>
+
+<script>
+  document.getElementById("companySignupForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+    alert("Company signup submitted ✅");
+  });
+</script>
+
+</body>
+</html>
