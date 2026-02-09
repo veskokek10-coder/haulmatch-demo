@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
+<meta charset="UTF-8">
 <title>HaulMatch</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
 * {
@@ -18,11 +18,11 @@ html, body {
   overflow-x: hidden;
 }
 
-/* ✅ GUARANTEED SEMI-TRUCK BACKGROUND */
+/* 🔒 LOCKED FREIGHTLINER BACKGROUND */
 body {
   background:
-    linear-gradient(rgba(10,20,45,0.72), rgba(10,20,45,0.72)),
-    url("https://images.unsplash.com/photo-1601918774946-25832a4be0d6");
+    linear-gradient(rgba(8,15,35,0.75), rgba(8,15,35,0.75)),
+    url("https://images.unsplash.com/photo-1617727553252-65863c156eb3");
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -31,11 +31,16 @@ body {
 
 /* HEADER */
 header {
-  padding: 24px 40px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 22px 40px;
   font-size: 26px;
   font-weight: 800;
   display: flex;
   align-items: center;
+  z-index: 10;
 }
 
 .logo-dot {
@@ -48,9 +53,13 @@ header {
 
 /* HERO */
 .hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
-  margin-top: 110px;
-  padding: 0 20px;
+  padding: 120px 20px 200px;
 }
 
 .hero h1 {
@@ -60,13 +69,13 @@ header {
 
 .hero p {
   max-width: 760px;
-  margin: 0 auto 14px;
+  margin-bottom: 14px;
   font-size: 18px;
 }
 
 .hero .sub {
   max-width: 720px;
-  margin: 0 auto 40px;
+  margin-bottom: 40px;
   font-size: 16px;
   opacity: 0.9;
 }
@@ -74,17 +83,22 @@ header {
 /* BUTTONS */
 .buttons {
   display: flex;
-  justify-content: center;
   gap: 22px;
 }
 
 .btn {
-  padding: 16px 42px;
-  border-radius: 18px;
+  padding: 16px 44px;
+  border-radius: 20px;
   font-size: 16px;
   font-weight: 700;
   border: none;
   cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.35);
 }
 
 .driver {
@@ -97,20 +111,21 @@ header {
   color: #0b1230;
 }
 
-/* REVIEWS */
+/* REVIEWS — LOCKED TO BOTTOM */
 .reviews {
-  margin-top: 160px;
-  padding: 0 60px 140px;
+  position: relative;
+  width: 100%;
+  padding: 60px 60px 120px;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: 28px;
+  gap: 26px;
 }
 
 .review {
   background: rgba(255,255,255,0.18);
   padding: 26px;
   border-radius: 20px;
-  backdrop-filter: blur(6px);
+  backdrop-filter: blur(8px);
 }
 
 .review-header {
@@ -142,10 +157,12 @@ header {
 
 <section class="hero">
   <h1>HaulMatch</h1>
+
   <p>
     A hiring platform built specifically for the trucking industry — connecting
     professional drivers with verified trucking companies.
   </p>
+
   <p class="sub">
     No job boards. No spam. Just real connections between drivers looking for
     long-term work and companies hiring dependable professionals.
@@ -165,7 +182,7 @@ header {
       <div><strong>Mike T. — CDL-A Driver</strong><br><span class="stars">★★★★★</span></div>
     </div>
     I was tired of expired listings and recruiters. HaulMatch connected me directly
-    with a regional carrier that fit my experience and home-time needs.
+    with a regional carrier that actually matched my experience and home-time needs.
   </div>
 
   <div class="review">
@@ -173,8 +190,8 @@ header {
       <img src="https://randomuser.me/api/portraits/women/44.jpg">
       <div><strong>Sarah L. — Owner Operator</strong><br><span class="stars">★★★★★</span></div>
     </div>
-    This platform actually understands trucking. I spoke directly with fleet managers
-    and found a contract that fits my operation perfectly.
+    This platform understands trucking. I spoke directly with fleet managers and
+    secured a contract that fits my operation perfectly.
   </div>
 
   <div class="review">
@@ -182,8 +199,7 @@ header {
       <img src="https://randomuser.me/api/portraits/men/65.jpg">
       <div><strong>James R. — Fleet Owner</strong><br><span class="stars">★★★★★</span></div>
     </div>
-    We hired two qualified drivers within a week. It saved us time and eliminated
-    the noise of traditional hiring sites.
+    We hired two qualified drivers within a week. No noise, no wasted time.
   </div>
 
   <div class="review">
@@ -191,7 +207,7 @@ header {
       <img src="https://randomuser.me/api/portraits/men/12.jpg">
       <div><strong>Daniel K. — Regional Driver</strong><br><span class="stars">★★★★★</span></div>
     </div>
-    Pay, routes, and expectations were clear from the start.
+    Pay, routes, and expectations were clear from day one.
   </div>
 
   <div class="review">
