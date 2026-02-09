@@ -7,138 +7,131 @@
 
   <style>
     * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      font-family: Arial, Helvetica, sans-serif;
     }
 
     body {
       min-height: 100vh;
-      overflow-x: hidden;
       color: white;
-    }
-
-    /* BACKGROUND */
-    .bg {
-      position: fixed;
-      inset: 0;
-      background-image: url('https://images.unsplash.com/photo-1616422285623-13ff0162193c');
+      background:
+        linear-gradient(rgba(10,14,30,0.75), rgba(10,14,30,0.75)),
+        url("https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2");
       background-size: cover;
       background-position: center;
-      z-index: -2;
+      background-attachment: fixed;
     }
 
-    .overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(15, 18, 35, 0.7);
-      z-index: -1;
-    }
-
-    /* HEADER */
     header {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      padding: 20px 40px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      z-index: 10;
-    }
-
-    .logo {
+      padding: 24px 40px;
       display: flex;
       align-items: center;
       gap: 10px;
-      font-size: 28px;
-      font-weight: 800;
+      font-size: 26px;
+      font-weight: bold;
     }
 
-    .truck-icon {
-      width: 30px;
-      height: 18px;
-      background: #4ade80;
-      border-radius: 4px;
-      position: relative;
+    header span {
+      color: #4ade80;
     }
 
-    .truck-icon::after {
-      content: '';
-      position: absolute;
-      right: -8px;
-      bottom: -4px;
-      width: 10px;
-      height: 10px;
-      background: white;
-      border-radius: 50%;
-    }
-
-    /* HERO */
     .hero {
-      min-height: 100vh;
+      min-height: 70vh;
       display: flex;
       flex-direction: column;
-      justify-content: center;
       align-items: center;
+      justify-content: center;
       text-align: center;
-      padding-top: 80px;
+      padding: 40px 20px;
     }
 
     .hero h1 {
       font-size: 52px;
-      margin-bottom: 10px;
+      margin-bottom: 14px;
     }
 
     .hero p {
-      max-width: 700px;
-      opacity: 0.9;
-      margin-bottom: 30px;
       font-size: 18px;
+      max-width: 720px;
+      margin-bottom: 28px;
+      opacity: 0.95;
     }
 
     .buttons {
       display: flex;
-      gap: 18px;
+      gap: 14px;
     }
 
-    button {
+    .btn {
       padding: 14px 28px;
-      font-size: 16px;
-      font-weight: 600;
       border-radius: 10px;
-      border: none;
+      font-size: 16px;
+      font-weight: bold;
       cursor: pointer;
+      border: none;
     }
 
     .driver {
       background: #4ade80;
-      color: #022c22;
+      color: black;
     }
 
     .company {
       background: #7aa2ff;
-      color: #0f172a;
+      color: black;
+    }
+
+    .reviews {
+      max-width: 1200px;
+      margin: 80px auto;
+      padding: 0 20px 80px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    .review {
+      background: rgba(255,255,255,0.12);
+      padding: 22px;
+      border-radius: 16px;
+    }
+
+    .review-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+
+    .review-header img {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .stars {
+      color: gold;
+      margin-bottom: 8px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      font-size: 14px;
+      opacity: 0.6;
     }
   </style>
 </head>
 
 <body>
 
-  <!-- BACKGROUND -->
-  <div class="bg"></div>
-  <div class="overlay"></div>
-
-  <!-- HEADER -->
   <header>
-    <div class="logo">
-      <div class="truck-icon"></div>
-      HaulMatch
-    </div>
+    <span>■</span> HaulMatch
   </header>
 
-  <!-- HERO -->
   <section class="hero">
     <h1>HaulMatch</h1>
     <p>
@@ -147,10 +140,72 @@
     </p>
 
     <div class="buttons">
-      <button class="driver">I’m a Driver</button>
-      <button class="company">I’m a Company</button>
+      <button class="btn driver">I'm a Driver</button>
+      <button class="btn company">I'm a Company</button>
     </div>
   </section>
+
+  <section class="reviews">
+
+    <div class="review">
+      <div class="review-header">
+        <img src="https://randomuser.me/api/portraits/men/32.jpg">
+        <strong>Mike T. — CDL Driver</strong>
+      </div>
+      <div class="stars">★★★★★</div>
+      Found a regional lane in under 48 hours. Pay was higher than anything I saw on job boards.
+    </div>
+
+    <div class="review">
+      <div class="review-header">
+        <img src="https://randomuser.me/api/portraits/women/44.jpg">
+        <strong>Sarah L. — Owner Operator</strong>
+      </div>
+      <div class="stars">★★★★★</div>
+      Way better than Indeed or Facebook groups. Everything is trucking-focused and serious.
+    </div>
+
+    <div class="review">
+      <div class="review-header">
+        <img src="https://randomuser.me/api/portraits/men/65.jpg">
+        <strong>James R. — Fleet Owner</strong>
+      </div>
+      <div class="stars">★★★★★</div>
+      Hired two qualified drivers in one week. Saved thousands in recruiter fees.
+    </div>
+
+    <div class="review">
+      <div class="review-header">
+        <img src="https://randomuser.me/api/portraits/men/41.jpg">
+        <strong>Daniel K. — Regional Driver</strong>
+      </div>
+      <div class="stars">★★★★★</div>
+      No scams, no nonsense. Real loads, real dispatchers, real pay.
+    </div>
+
+    <div class="review">
+      <div class="review-header">
+        <img src="https://randomuser.me/api/portraits/women/29.jpg">
+        <strong>Amanda P. — Logistics Manager</strong>
+      </div>
+      <div class="stars">★★★★★</div>
+      We filled three trucks faster than any recruiting platform we’ve tried.
+    </div>
+
+    <div class="review">
+      <div class="review-header">
+        <img src="https://randomuser.me/api/portraits/men/77.jpg">
+        <strong>Chris W. — OTR Driver</strong>
+      </div>
+      <div class="stars">★★★★★</div>
+      Signed up and had offers same day. No recruiters blowing up my phone.
+    </div>
+
+  </section>
+
+  <footer>
+    © 2026 HaulMatch — Built for drivers and fleets
+  </footer>
 
 </body>
 </html>
