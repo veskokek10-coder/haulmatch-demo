@@ -1,166 +1,234 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>HaulMatch</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>HaulMatch</title>
 
-  <style>
-    html, body {
-      width: 100%;
-      height: 100%;
-      margin: 0;
-      padding: 0;
-    }
+<style>
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
 
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background-color: #0f172a; /* fallback color */
-      background-image:
-        linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
-        url("https://images.unsplash.com/photo-1529070538774-1843cb3265df?auto=format&fit=crop&w=1920&q=80");
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-attachment: fixed;
-      color: white;
-    }
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+  color: white;
+  background: #0f172a;
+}
 
-    .container {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding: 30px;
-      text-align: center;
-      box-sizing: border-box;
-    }
+/* ===== BACKGROUND VIDEO EFFECT ===== */
+.background {
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+    url("https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1920&q=80");
+  background-size: cover;
+  background-position: center;
+  z-index: -3;
+}
 
-    h1 {
-      font-size: 3.2rem;
-      margin-bottom: 10px;
-    }
+/* ===== TRUCK ANIMATION ===== */
+.truck {
+  position: fixed;
+  bottom: 8%;
+  left: -300px;
+  width: 280px;
+  animation: drive 18s linear infinite;
+  z-index: -1;
+  opacity: 0.95;
+}
 
-    p {
-      font-size: 1.2rem;
-      max-width: 700px;
-      line-height: 1.6;
-    }
+@keyframes drive {
+  0% { left: -300px; }
+  100% { left: 110%; }
+}
 
-    .buttons {
-      margin-top: 30px;
-    }
+/* ===== UI ===== */
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 30px;
+}
 
-    button {
-      padding: 14px 30px;
-      font-size: 1rem;
-      border: none;
-      border-radius: 10px;
-      margin: 10px;
-      cursor: pointer;
-      font-weight: bold;
-    }
+h1 {
+  font-size: 3.2rem;
+  margin-bottom: 10px;
+}
 
-    .driver {
-      background-color: #22c55e;
-      color: black;
-    }
+p {
+  max-width: 700px;
+  font-size: 1.2rem;
+}
 
-    .company {
-      background-color: #38bdf8;
-      color: black;
-    }
+.buttons button {
+  padding: 14px 30px;
+  font-size: 1rem;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  margin: 10px;
+}
 
-    .reviews {
-      margin-top: 60px;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-      max-width: 900px;
-      width: 100%;
-    }
+.driver { background: #22c55e; color: black; }
+.company { background: #38bdf8; color: black; }
 
-    .review-card {
-      background: rgba(255,255,255,0.15);
-      backdrop-filter: blur(12px);
-      border-radius: 16px;
-      padding: 20px;
-      text-align: left;
-    }
+.card {
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(12px);
+  border-radius: 16px;
+  padding: 25px;
+  max-width: 350px;
+  width: 100%;
+}
 
-    .review-header {
-      display: flex;
-      align-items: center;
-      margin-bottom: 10px;
-    }
+input {
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+  border-radius: 8px;
+  border: none;
+}
 
-    .review-header img {
-      width: 45px;
-      height: 45px;
-      border-radius: 50%;
-      margin-right: 12px;
-      object-fit: cover;
-    }
+.card button {
+  width: 100%;
+  margin-top: 15px;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+}
 
-    .review-name {
-      font-weight: bold;
-    }
+.hidden { display: none; }
 
-    .stars {
-      color: gold;
-      font-size: 1.1rem;
-    }
-  </style>
+/* ===== REVIEWS ===== */
+.reviews {
+  margin-top: 50px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+  max-width: 900px;
+}
+
+.review {
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(10px);
+  padding: 20px;
+  border-radius: 14px;
+  text-align: left;
+}
+
+.review-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.review-header img {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  margin-right: 12px;
+}
+
+.stars { color: gold; }
+</style>
 </head>
 
 <body>
-  <div class="container">
+
+<div class="background"></div>
+
+<img class="truck"
+src="https://pngimg.com/uploads/truck/truck_PNG16268.png"
+alt="Truck driving">
+
+<div class="container">
+
+  <!-- HOME -->
+  <div id="home">
     <h1>HaulMatch</h1>
-    <p>
-      The fastest way for trucking companies to find drivers — and for drivers
-      to find high-paying loads nationwide.
-    </p>
+    <p>The fastest way for trucking companies and drivers to connect nationwide.</p>
 
     <div class="buttons">
-      <button class="driver">I'm a Driver</button>
-      <button class="company">I'm a Company</button>
+      <button class="driver" onclick="openAuth('Driver')">I'm a Driver</button>
+      <button class="company" onclick="openAuth('Company')">I'm a Company</button>
     </div>
 
     <div class="reviews">
-      <div class="review-card">
+      <div class="review">
         <div class="review-header">
           <img src="https://randomuser.me/api/portraits/men/32.jpg">
           <div>
-            <div class="review-name">Mike T.</div>
+            <strong>Mike T.</strong>
             <div class="stars">★★★★★</div>
           </div>
         </div>
-        <p>Found a regional driving job in under 48 hours. Super smooth.</p>
+        Found a regional job in under 48 hours.
       </div>
 
-      <div class="review-card">
+      <div class="review">
         <div class="review-header">
           <img src="https://randomuser.me/api/portraits/women/45.jpg">
           <div>
-            <div class="review-name">Sarah L.</div>
+            <strong>Sarah L.</strong>
             <div class="stars">★★★★★</div>
           </div>
         </div>
-        <p>Way better than Facebook groups or job boards. Legit platform.</p>
+        Way better than job boards.
       </div>
 
-      <div class="review-card">
+      <div class="review">
         <div class="review-header">
           <img src="https://randomuser.me/api/portraits/men/64.jpg">
           <div>
-            <div class="review-name">Fleet Owner</div>
+            <strong>Fleet Owner</strong>
             <div class="stars">★★★★★</div>
           </div>
         </div>
-        <p>Hired two drivers in one week. Saved us tons of time.</p>
+        Hired two drivers in one week.
       </div>
     </div>
   </div>
+
+  <!-- AUTH -->
+  <div id="auth" class="hidden">
+    <div class="card">
+      <h2 id="roleTitle"></h2>
+      <input placeholder="Email">
+      <input type="password" placeholder="Password">
+      <button onclick="login()">Login / Register</button>
+      <button onclick="goHome()">Back</button>
+    </div>
+  </div>
+
+</div>
+
+<script>
+function openAuth(role) {
+  document.getElementById('home').classList.add('hidden');
+  document.getElementById('auth').classList.remove('hidden');
+  document.getElementById('roleTitle').innerText = role + " Login";
+}
+
+function goHome() {
+  document.getElementById('auth').classList.add('hidden');
+  document.getElementById('home').classList.remove('hidden');
+}
+
+function login() {
+  alert("Demo login successful! (Firebase comes next)");
+}
+</script>
+
 </body>
 </html>
