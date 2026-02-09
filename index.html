@@ -11,28 +11,32 @@ html, body {
   padding: 0;
   height: 100%;
   font-family: Arial, Helvetica, sans-serif;
+  background: #0f172a;
 }
 
-/* ===== VIDEO BACKGROUND ===== */
-.video-bg {
+/* ===== FALLBACK BACKGROUND (ALWAYS VISIBLE) ===== */
+.bg-fallback {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+    url("https://images.unsplash.com/photo-1601584115197-04ecc0da31d5?auto=format&fit=crop&w=1920&q=80");
+  background-size: cover;
+  background-position: center;
   z-index: -3;
 }
 
-/* Dark overlay for readability */
-.overlay {
+/* ===== VIDEO BACKGROUND ===== */
+video {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.55);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   z-index: -2;
 }
 
-/* ===== MAIN CONTENT ===== */
+/* ===== CONTENT ===== */
 .container {
   min-height: 100vh;
   display: flex;
@@ -52,7 +56,6 @@ h1 {
 p {
   max-width: 700px;
   font-size: 1.2rem;
-  line-height: 1.6;
 }
 
 /* ===== BUTTONS ===== */
@@ -66,15 +69,8 @@ p {
   margin: 10px;
 }
 
-.driver {
-  background-color: #22c55e;
-  color: black;
-}
-
-.company {
-  background-color: #38bdf8;
-  color: black;
-}
+.driver { background: #22c55e; color: black; }
+.company { background: #38bdf8; color: black; }
 
 /* ===== AUTH CARD ===== */
 .card {
@@ -104,9 +100,7 @@ input {
   cursor: pointer;
 }
 
-.hidden {
-  display: none;
-}
+.hidden { display: none; }
 
 /* ===== REVIEWS ===== */
 .reviews {
@@ -138,20 +132,19 @@ input {
   margin-right: 12px;
 }
 
-.stars {
-  color: gold;
-}
+.stars { color: gold; }
 </style>
 </head>
 
 <body>
 
-<!-- 🚛 TRUCK HIGHWAY VIDEO BACKGROUND -->
-<video class="video-bg" autoplay muted loop playsinline>
+<!-- ALWAYS-VISIBLE BACKGROUND -->
+<div class="bg-fallback"></div>
+
+<!-- 🚛 FULL-SCREEN TRUCK VIDEO -->
+<video autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1601584115197-04ecc0da31d5?auto=format&fit=crop&w=1920&q=80">
   <source src="https://cdn.coverr.co/videos/coverr-truck-driving-on-the-highway-8459/1080p.mp4" type="video/mp4">
 </video>
-
-<div class="overlay"></div>
 
 <div class="container">
 
@@ -227,7 +220,7 @@ function goHome() {
 }
 
 function login() {
-  alert("Demo login successful! Real accounts coming next.");
+  alert("Demo login successful!");
 }
 </script>
 
