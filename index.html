@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
+<meta charset="UTF-8" />
 <title>HaulMatch</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 <style>
 * {
@@ -15,22 +15,23 @@
 
 html, body {
   height: 100%;
+  overflow-x: hidden;
 }
 
+/* BACKGROUND (UNCHANGED) */
 body {
   background-image: url("https://images.unsplash.com/photo-1601584115197-04ecc0da31d7");
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
   color: white;
-  overflow-x: hidden;
 }
 
 /* DARK OVERLAY */
 .overlay {
   position: fixed;
   inset: 0;
-  background: rgba(10, 15, 30, 0.7);
+  background: rgba(10, 15, 30, 0.72);
   z-index: 0;
 }
 
@@ -58,7 +59,7 @@ header {
   position: relative;
   z-index: 2;
   text-align: center;
-  margin-top: 120px;
+  margin-top: 110px;
   padding: 0 20px;
 }
 
@@ -68,7 +69,7 @@ header {
 }
 
 .hero p {
-  max-width: 780px;
+  max-width: 760px;
   margin: 0 auto 18px;
   font-size: 18px;
 }
@@ -112,64 +113,67 @@ header {
   color: #0b1230;
 }
 
-/* ANIMATED SEMI TRUCK */
+/* SMALL FADED TRUCK */
 .truck-lane {
   position: relative;
   z-index: 2;
-  margin: 140px 0 40px;
-  height: 80px;
+  margin-top: 160px;
+  height: 40px;
   overflow: hidden;
 }
 
 .truck {
   position: absolute;
-  left: -300px;
-  top: 20px;
+  left: -220px;
+  top: 6px;
   display: flex;
   align-items: center;
-  animation: drive 12s linear infinite;
+  opacity: 0;
+  animation: drive 14s linear infinite;
 }
 
 .cab {
-  width: 70px;
-  height: 40px;
+  width: 42px;
+  height: 20px;
   background: #e53935;
-  border-radius: 6px 6px 4px 4px;
-}
-
-.trailer {
-  width: 160px;
-  height: 36px;
-  background: #e0e0e0;
-  margin-left: 4px;
   border-radius: 4px;
 }
 
+.trailer {
+  width: 96px;
+  height: 18px;
+  background: #e0e0e0;
+  margin-left: 4px;
+  border-radius: 3px;
+}
+
 .wheel {
-  width: 14px;
-  height: 14px;
+  width: 8px;
+  height: 8px;
   background: #111;
   border-radius: 50%;
   position: absolute;
-  bottom: -6px;
+  bottom: -4px;
 }
 
-.w1 { left: 14px; }
-.w2 { left: 44px; }
-.w3 { left: 110px; }
-.w4 { left: 140px; }
+.w1 { left: 8px; }
+.w2 { left: 24px; }
+.w3 { left: 66px; }
+.w4 { left: 82px; }
 
 @keyframes drive {
-  from { left: -300px; }
-  to { left: 110%; }
+  0%   { left: -220px; opacity: 0; }
+  10%  { opacity: 0.7; }
+  90%  { opacity: 0.7; }
+  100% { left: 110%; opacity: 0; }
 }
 
-/* REVIEWS */
+/* REVIEWS — MOVED LOWER */
 .reviews {
   position: relative;
   z-index: 2;
-  margin-top: 80px;
-  padding: 100px 60px;
+  margin-top: 120px;
+  padding: 120px 60px 140px;
   background: rgba(0,0,0,0.45);
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -222,16 +226,12 @@ header {
   </p>
 
   <div class="buttons">
-    <button class="btn driver" onclick="window.location.href='/signup-driver'">
-      I’m a Driver
-    </button>
-    <button class="btn company" onclick="window.location.href='/signup-company'">
-      I’m a Company
-    </button>
+    <button class="btn driver">I’m a Driver</button>
+    <button class="btn company">I’m a Company</button>
   </div>
 </section>
 
-<!-- PURE CSS ANIMATED TRUCK -->
+<!-- SMALL FADED TRUCK ~1 INCH ABOVE REVIEWS -->
 <div class="truck-lane">
   <div class="truck">
     <div class="cab"></div>
@@ -249,7 +249,7 @@ header {
       <img src="https://randomuser.me/api/portraits/men/32.jpg">
       <div><strong>Mike T.</strong><br><span class="stars">★★★★★</span></div>
     </div>
-    Found a regional driving job in under 48 hours.
+    Found a regional job in under 48 hours.
   </div>
 
   <div class="review">
@@ -257,7 +257,7 @@ header {
       <img src="https://randomuser.me/api/portraits/women/44.jpg">
       <div><strong>Sarah L.</strong><br><span class="stars">★★★★★</span></div>
     </div>
-    Finally a platform built for trucking jobs.
+    Clean platform built for real drivers.
   </div>
 
   <div class="review">
@@ -273,7 +273,7 @@ header {
       <img src="https://randomuser.me/api/portraits/men/12.jpg">
       <div><strong>James R.</strong><br><span class="stars">★★★★★</span></div>
     </div>
-    Way better than job boards.
+    Finally something better than job boards.
   </div>
 
   <div class="review">
@@ -281,7 +281,7 @@ header {
       <img src="https://randomuser.me/api/portraits/women/22.jpg">
       <div><strong>Amanda K.</strong><br><span class="stars">★★★★★</span></div>
     </div>
-    Clean, simple, and effective.
+    Recruiting made simple.
   </div>
 
   <div class="review">
@@ -289,7 +289,7 @@ header {
       <img src="https://randomuser.me/api/portraits/men/81.jpg">
       <div><strong>Robert D.</strong><br><span class="stars">★★★★★</span></div>
     </div>
-    Legit companies. Real jobs.
+    Legit companies. Legit drivers.
   </div>
 </section>
 
