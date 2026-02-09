@@ -19,7 +19,7 @@ html, body {
   color: white;
 }
 
-/* PERMANENT SEMI TRUCK BACKGROUND */
+/* PERMANENT TRUCK BACKGROUND */
 .bg-truck {
   position: fixed;
   inset: 0;
@@ -78,7 +78,7 @@ header {
 }
 
 .hero p {
-  max-width: 800px;
+  max-width: 820px;
   margin-bottom: 14px;
   font-size: 18px;
 }
@@ -86,45 +86,62 @@ header {
 .hero .sub {
   font-size: 16px;
   opacity: 0.9;
-  margin-bottom: 42px;
+  margin-bottom: 46px;
 }
 
-/* BUTTONS */
+/* FANCY BUTTONS */
 .buttons {
   display: flex;
-  gap: 22px;
+  gap: 26px;
 }
 
 .btn {
-  padding: 16px 48px;
-  border-radius: 26px;
+  padding: 18px 54px;
+  border-radius: 999px;
   font-size: 16px;
-  font-weight: 700;
+  font-weight: 800;
+  letter-spacing: 0.3px;
   border: none;
   cursor: pointer;
-  transition: all 0.25s ease;
+  position: relative;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.btn::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.35), transparent);
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
+}
+
+.btn:hover::after {
+  transform: translateX(100%);
 }
 
 .btn:hover {
-  transform: translateY(-3px) scale(1.04);
-  box-shadow: 0 16px 34px rgba(0,0,0,0.45);
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.45);
 }
 
 .driver {
-  background: linear-gradient(135deg, #5eea6a, #32c850);
+  background: linear-gradient(135deg, #63f07b, #2fc85b);
   color: #0b2b12;
+  box-shadow: 0 0 0 rgba(99,240,123,0);
 }
 
 .company {
-  background: linear-gradient(135deg, #7fa8ff, #5b7cff);
+  background: linear-gradient(135deg, #8aa9ff, #5a6cff);
   color: #0b1230;
 }
 
-/* REVIEWS (MOVED UP SLIGHTLY) */
+/* REVIEWS (MOVED UP MORE) */
 .reviews {
   width: 100%;
-  margin-top: -60px; /* moves reviews UP ~1 inch */
-  padding: 40px 60px 80px;
+  margin-top: -100px; /* moved UP another inch */
+  padding: 40px 60px 90px;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 26px;
@@ -132,9 +149,9 @@ header {
 
 .review {
   background: rgba(255,255,255,0.18);
-  padding: 28px;
-  border-radius: 22px;
-  backdrop-filter: blur(10px);
+  padding: 30px;
+  border-radius: 24px;
+  backdrop-filter: blur(12px);
 }
 
 .review-header {
@@ -145,8 +162,8 @@ header {
 }
 
 .review-header img {
-  width: 54px;
-  height: 54px;
+  width: 56px;
+  height: 56px;
   border-radius: 50%;
 }
 
@@ -159,7 +176,7 @@ header {
 
 <body>
 
-<!-- SEMI TRUCK BACKGROUND (LOCKED) -->
+<!-- LOCKED SEMI TRUCK BACKGROUND -->
 <div class="bg-truck">
   <img src="https://images.pexels.com/photos/2199293/pexels-photo-2199293.jpeg" alt="Freightliner Semi Truck">
 </div>
@@ -227,8 +244,7 @@ header {
       <img src="https://randomuser.me/api/portraits/men/12.jpg">
       <div><strong>Daniel K. — Regional Driver</strong><br><span class="stars">★★★★★</span></div>
     </div>
-    Pay, routes, and expectations were clear from day one. I didn’t have to chase
-    anyone down or guess what I was signing up for.
+    Pay, routes, and expectations were clear from day one.
   </div>
 
   <div class="review">
@@ -236,8 +252,8 @@ header {
       <img src="https://randomuser.me/api/portraits/women/22.jpg">
       <div><strong>Amanda P. — Operations Manager</strong><br><span class="stars">★★★★★</span></div>
     </div>
-    We found drivers who actually matched our company culture. The conversations
-    felt professional — not like scrolling through random resumes.
+    We found drivers who matched our company culture. The conversations felt
+    professional and intentional.
   </div>
 
 </section>
