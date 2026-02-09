@@ -7,30 +7,53 @@
 
   <style>
     * {
-      box-sizing: border-box;
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
       font-family: Arial, Helvetica, sans-serif;
     }
 
     body {
       min-height: 100vh;
       color: white;
-      background:
-        linear-gradient(rgba(10,14,30,0.75), rgba(10,14,30,0.75)),
-        url("https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2");
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
+      overflow-x: hidden;
+    }
+
+    /* VIDEO BACKGROUND */
+    .video-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -2;
+      overflow: hidden;
+    }
+
+    .video-bg video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* DARK OVERLAY */
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(10, 14, 30, 0.65);
+      z-index: -1;
     }
 
     header {
       padding: 24px 40px;
+      font-size: 26px;
+      font-weight: bold;
       display: flex;
       align-items: center;
       gap: 10px;
-      font-size: 26px;
-      font-weight: bold;
     }
 
     header span {
@@ -41,20 +64,20 @@
       min-height: 70vh;
       display: flex;
       flex-direction: column;
-      align-items: center;
       justify-content: center;
+      align-items: center;
       text-align: center;
       padding: 40px 20px;
     }
 
     .hero h1 {
       font-size: 52px;
-      margin-bottom: 14px;
+      margin-bottom: 16px;
     }
 
     .hero p {
+      max-width: 760px;
       font-size: 18px;
-      max-width: 720px;
       margin-bottom: 28px;
       opacity: 0.95;
     }
@@ -65,7 +88,7 @@
     }
 
     .btn {
-      padding: 14px 28px;
+      padding: 14px 30px;
       border-radius: 10px;
       font-size: 16px;
       font-weight: bold;
@@ -128,6 +151,15 @@
 
 <body>
 
+  <!-- VIDEO BACKGROUND -->
+  <div class="video-bg">
+    <video autoplay muted loop playsinline>
+      <source src="freightliner.mp4" type="video/mp4">
+    </video>
+  </div>
+
+  <div class="overlay"></div>
+
   <header>
     <span>■</span> HaulMatch
   </header>
@@ -162,7 +194,7 @@
         <strong>Sarah L. — Owner Operator</strong>
       </div>
       <div class="stars">★★★★★</div>
-      Way better than Indeed or Facebook groups. Everything is trucking-focused and serious.
+      Way better than Indeed or Facebook groups. Everything is trucking-focused.
     </div>
 
     <div class="review">
@@ -171,7 +203,7 @@
         <strong>James R. — Fleet Owner</strong>
       </div>
       <div class="stars">★★★★★</div>
-      Hired two qualified drivers in one week. Saved thousands in recruiter fees.
+      Hired two qualified drivers in one week and saved thousands in recruiter fees.
     </div>
 
     <div class="review">
@@ -180,7 +212,7 @@
         <strong>Daniel K. — Regional Driver</strong>
       </div>
       <div class="stars">★★★★★</div>
-      No scams, no nonsense. Real loads, real dispatchers, real pay.
+      No scams, no nonsense. Real loads and real dispatchers.
     </div>
 
     <div class="review">
@@ -189,7 +221,7 @@
         <strong>Amanda P. — Logistics Manager</strong>
       </div>
       <div class="stars">★★★★★</div>
-      We filled three trucks faster than any recruiting platform we’ve tried.
+      We filled three trucks faster than any recruiting platform we’ve used.
     </div>
 
     <div class="review">
@@ -198,7 +230,7 @@
         <strong>Chris W. — OTR Driver</strong>
       </div>
       <div class="stars">★★★★★</div>
-      Signed up and had offers same day. No recruiters blowing up my phone.
+      Signed up and had offers the same day. No recruiters blowing up my phone.
     </div>
 
   </section>
