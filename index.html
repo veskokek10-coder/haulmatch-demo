@@ -18,20 +18,15 @@ html, body {
   overflow-x: hidden;
 }
 
-/* 🔒 HARD-LOCKED BACKGROUND LAYER */
-.background {
-  position: fixed;
-  inset: 0;
-  z-index: -2;
-  background-image:
-    linear-gradient(rgba(10,18,40,0.72), rgba(10,18,40,0.72)),
-    url("https://images.unsplash.com/photo-1503376780353-7e6692767b70");
+/* 🔒 PERMANENT SEMI TRUCK BACKGROUND */
+body {
+  background:
+    linear-gradient(rgba(10,18,40,0.75), rgba(10,18,40,0.75)),
+    url("https://upload.wikimedia.org/wikipedia/commons/6/6f/Freightliner_Cascadia_Truck.jpg");
   background-size: cover;
   background-position: center;
-}
-
-/* CONTENT */
-body {
+  background-repeat: no-repeat;
+  background-attachment: scroll;
   color: white;
 }
 
@@ -60,7 +55,7 @@ header {
 /* HERO */
 .hero {
   min-height: 100vh;
-  padding: 140px 20px 140px;
+  padding: 140px 20px 120px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -115,10 +110,10 @@ header {
   color: #0b1230;
 }
 
-/* REVIEWS — SLIGHTLY HIGHER */
+/* REVIEWS */
 .reviews {
   width: 100%;
-  padding: 40px 60px 90px; /* 👈 nudged UP */
+  padding: 60px 60px 80px;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 26px;
@@ -153,8 +148,6 @@ header {
 
 <body>
 
-<div class="background"></div>
-
 <header>
   <div class="logo-dot"></div>
   HaulMatch
@@ -186,8 +179,8 @@ header {
       <img src="https://randomuser.me/api/portraits/men/32.jpg">
       <div><strong>Mike T. — CDL-A Driver</strong><br><span class="stars">★★★★★</span></div>
     </div>
-    I was burned out on job boards. HaulMatch connected me directly with a carrier
-    that respected my experience and home-time needs.
+    HaulMatch connected me directly with a carrier that respected my experience and
+    home-time needs.
   </div>
 
   <div class="review">
@@ -195,8 +188,7 @@ header {
       <img src="https://randomuser.me/api/portraits/women/44.jpg">
       <div><strong>Sarah L. — Owner Operator</strong><br><span class="stars">★★★★★</span></div>
     </div>
-    Finally a platform that understands trucking. Real conversations with fleet
-    managers — not endless applications.
+    Finally a platform that understands trucking. No recruiters, no spam.
   </div>
 
   <div class="review">
@@ -204,7 +196,7 @@ header {
       <img src="https://randomuser.me/api/portraits/men/65.jpg">
       <div><strong>James R. — Fleet Owner</strong><br><span class="stars">★★★★★</span></div>
     </div>
-    We hired two qualified drivers in under a week. No noise, no wasted time.
+    We hired two drivers in under a week. Straight to the point.
   </div>
 
   <div class="review">
@@ -212,7 +204,7 @@ header {
       <img src="https://randomuser.me/api/portraits/men/12.jpg">
       <div><strong>Daniel K. — Regional Driver</strong><br><span class="stars">★★★★★</span></div>
     </div>
-    Pay, routes, and expectations were clear from day one.
+    Clear pay, clear routes, no guessing games.
   </div>
 
   <div class="review">
@@ -220,7 +212,7 @@ header {
       <img src="https://randomuser.me/api/portraits/women/22.jpg">
       <div><strong>Amanda P. — Operations Manager</strong><br><span class="stars">★★★★★</span></div>
     </div>
-    We found drivers who actually fit our company culture.
+    Drivers we matched with actually fit our company.
   </div>
 
 </section>
