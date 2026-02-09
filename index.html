@@ -13,50 +13,36 @@
   font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
-html, body {
-  width: 100%;
-  height: 100%;
-  overflow-x: hidden;
+body {
+  min-height: 100vh;
   color: white;
-}
-
-/* VIDEO BACKGROUND */
-#bg-video {
-  position: fixed;
-  top: 0;
-  left: 0;
-  min-width: 100%;
-  min-height: 100%;
-  object-fit: cover;
-  z-index: -3;
-}
-
-/* DARK GRADIENT OVERLAY */
-#overlay {
-  position: fixed;
-  inset: 0;
-  background: linear-gradient(
-    rgba(15,20,45,0.55),
-    rgba(15,20,45,0.85)
-  );
-  z-index: -2;
+  background:
+    linear-gradient(rgba(10,15,35,0.75), rgba(10,15,35,0.85)),
+    url("https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1920&q=80");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
 }
 
 /* HEADER */
 header {
-  padding: 30px;
   text-align: center;
-  animation: dropIn 1.2s ease;
+  padding: 40px 20px;
 }
 
 header h1 {
-  font-size: 3rem;
+  font-size: 3.2rem;
   font-weight: 800;
+}
+
+header p {
+  margin-top: 10px;
+  opacity: 0.9;
 }
 
 /* HERO */
 .hero {
-  min-height: 80vh;
+  min-height: 60vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -64,19 +50,19 @@ header h1 {
   text-align: center;
 }
 
-.hero p {
-  margin: 15px 0 30px;
-  font-size: 1.2rem;
-  opacity: 0.9;
+.hero h2 {
+  font-size: 1.4rem;
+  margin-bottom: 25px;
+  opacity: 0.95;
 }
 
 .buttons {
   display: flex;
-  gap: 16px;
+  gap: 18px;
 }
 
 .btn {
-  padding: 14px 30px;
+  padding: 14px 32px;
   border-radius: 12px;
   border: none;
   font-weight: 600;
@@ -88,22 +74,43 @@ header h1 {
   transform: translateY(-3px);
 }
 
-.driver { background: #22c55e; }
-.company { background: #60a5fa; }
-
-/* FLOATING REVIEWS */
-.bubble {
-  position: absolute;
-  background: rgba(255,255,255,0.15);
-  backdrop-filter: blur(8px);
-  padding: 18px;
-  width: 240px;
-  border-radius: 18px;
-  animation: float 20s infinite linear;
+.driver {
+  background: #22c55e;
 }
 
-.bubble h4 {
-  margin-bottom: 6px;
+.company {
+  background: #60a5fa;
+}
+
+/* REVIEWS */
+.reviews {
+  padding: 80px 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.review {
+  background: rgba(255,255,255,0.12);
+  backdrop-filter: blur(10px);
+  border-radius: 18px;
+  padding: 20px;
+}
+
+.review-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.review-header img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 .stars {
@@ -111,30 +118,15 @@ header h1 {
   font-size: 0.9rem;
 }
 
-@keyframes float {
-  from {
-    transform: translateY(110vh);
-  }
-  to {
-    transform: translateY(-150vh);
-  }
-}
-
-@keyframes dropIn {
-  from { opacity: 0; transform: translateY(-40px); }
-  to { opacity: 1; transform: translateY(0); }
+.review p {
+  font-size: 0.95rem;
+  line-height: 1.4;
+  opacity: 0.95;
 }
 </style>
 </head>
 
 <body>
-
-<!-- TRUCK VIDEO -->
-<video id="bg-video" autoplay muted loop playsinline>
-  <source src="https://cdn.coverr.co/videos/coverr-semi-truck-driving-on-highway-9714/1080p.mp4" type="video/mp4">
-</video>
-
-<div id="overlay"></div>
 
 <header>
   <h1>HaulMatch</h1>
@@ -142,43 +134,84 @@ header h1 {
 </header>
 
 <section class="hero">
-  <p>Find loads. Hire drivers. Move freight — faster.</p>
+  <h2>Find loads. Hire drivers. Move freight — faster.</h2>
   <div class="buttons">
     <button class="btn driver">I’m a Driver</button>
     <button class="btn company">I’m a Company</button>
   </div>
 </section>
 
-<!-- FLOATING REVIEWS -->
-<div class="bubble" style="left:5%; animation-delay:0s">
-  <h4>Mike T.</h4>
-  <div class="stars">★★★★★</div>
-  <p>Found a regional job in under 48 hours.</p>
-</div>
+<section class="reviews">
+  <div class="review">
+    <div class="review-header">
+      <img src="https://randomuser.me/api/portraits/men/32.jpg">
+      <div>
+        <strong>Mike Thompson</strong>
+        <div class="stars">★★★★★</div>
+      </div>
+    </div>
+    <p>
+      I found a regional driving job in under 48 hours. Pay was higher than
+      anything I saw on Indeed or job boards. HaulMatch actually understands trucking.
+    </p>
+  </div>
 
-<div class="bubble" style="left:25%; animation-delay:3s">
-  <h4>Sarah L.</h4>
-  <div class="stars">★★★★★</div>
-  <p>Way better than Indeed or Facebook groups.</p>
-</div>
+  <div class="review">
+    <div class="review-header">
+      <img src="https://randomuser.me/api/portraits/women/44.jpg">
+      <div>
+        <strong>Sarah Lopez</strong>
+        <div class="stars">★★★★★</div>
+      </div>
+    </div>
+    <p>
+      Way better than Facebook groups. No spam, no fake listings.
+      Everything is trucking-focused and simple to use.
+    </p>
+  </div>
 
-<div class="bubble" style="left:45%; animation-delay:6s">
-  <h4>Fleet Owner</h4>
-  <div class="stars">★★★★★</div>
-  <p>Hired two drivers in one week.</p>
-</div>
+  <div class="review">
+    <div class="review-header">
+      <img src="https://randomuser.me/api/portraits/men/76.jpg">
+      <div>
+        <strong>James R.</strong>
+        <div class="stars">★★★★★</div>
+      </div>
+    </div>
+    <p>
+      I applied to two companies and got calls the same week.
+      This is what the industry has been missing.
+    </p>
+  </div>
 
-<div class="bubble" style="left:65%; animation-delay:9s">
-  <h4>Jason R.</h4>
-  <div class="stars">★★★★★</div>
-  <p>No spam. Just trucking jobs.</p>
-</div>
+  <div class="review">
+    <div class="review-header">
+      <img src="https://randomuser.me/api/portraits/men/51.jpg">
+      <div>
+        <strong>Fleet Owner</strong>
+        <div class="stars">★★★★★</div>
+      </div>
+    </div>
+    <p>
+      We hired two qualified drivers in one week and saved thousands
+      in recruiter fees. Worth every penny.
+    </p>
+  </div>
 
-<div class="bubble" style="left:80%; animation-delay:12s">
-  <h4>Linda P.</h4>
-  <div class="stars">★★★★★</div>
-  <p>Saved us thousands in recruiting fees.</p>
-</div>
+  <div class="review">
+    <div class="review-header">
+      <img src="https://randomuser.me/api/portraits/women/65.jpg">
+      <div>
+        <strong>Linda Parker</strong>
+        <div class="stars">★★★★★</div>
+      </div>
+    </div>
+    <p>
+      Clean interface, real people, and real trucking jobs.
+      I recommend HaulMatch to every driver I know.
+    </p>
+  </div>
+</section>
 
 </body>
 </html>
