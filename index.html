@@ -1,362 +1,156 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<title>HaulMatch</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8" />
+  <title>HaulMatch</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<style>
-  * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  }
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    }
 
-  body {
-    height: 100vh;
-    overflow-x: hidden;
-  }
+    body {
+      min-height: 100vh;
+      overflow-x: hidden;
+      color: white;
+    }
 
-  /* BACKGROUND */
-  .background {
-    position: fixed;
-    inset: 0;
-    background-image: url('https://images.unsplash.com/photo-1605559424843-9c8cdd7c4e7a');
-    background-size: cover;
-    background-position: center;
-    z-index: -2;
-  }
+    /* BACKGROUND */
+    .bg {
+      position: fixed;
+      inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1616422285623-13ff0162193c');
+      background-size: cover;
+      background-position: center;
+      z-index: -2;
+    }
 
-  .overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(20, 22, 40, 0.65);
-    z-index: -1;
-  }
+    .overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 18, 35, 0.7);
+      z-index: -1;
+    }
 
-  /* HEADER */
-  header {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    padding: 20px 40px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    z-index: 10;
-  }
+    /* HEADER */
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding: 20px 40px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      z-index: 10;
+    }
 
-  .logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    color: white;
-    font-size: 28px;
-    font-weight: 800;
-  }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 28px;
+      font-weight: 800;
+    }
 
-  .logo-box {
-    width: 28px;
-    height: 18px;
-    background: #4ade80;
-    border-radius: 4px;
-    position: relative;
-  }
+    .truck-icon {
+      width: 30px;
+      height: 18px;
+      background: #4ade80;
+      border-radius: 4px;
+      position: relative;
+    }
 
-  .logo-box::after {
-    content: '';
-    position: absolute;
-    right: -8px;
-    bottom: -4px;
-    width: 10px;
-    height: 10px;
-    background: white;
-    border-radius: 50%;
-  }
+    .truck-icon::after {
+      content: '';
+      position: absolute;
+      right: -8px;
+      bottom: -4px;
+      width: 10px;
+      height: 10px;
+      background: white;
+      border-radius: 50%;
+    }
 
-  /* HERO */
-  .hero {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: white;
-    padding-top: 80px;
-  }
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding-top: 80px;
+    }
 
-  .hero h1 {
-    font-size: 48px;
-    margin-bottom: 10px;
-  }
+    .hero h1 {
+      font-size: 52px;
+      margin-bottom: 10px;
+    }
 
-  .hero p {
-    opacity: 0.9;
-    margin-bottom: 30px;
-  }
+    .hero p {
+      max-width: 700px;
+      opacity: 0.9;
+      margin-bottom: 30px;
+      font-size: 18px;
+    }
 
-  .buttons {
-    display: flex;
-    gap: 16px;
-  }
+    .buttons {
+      display: flex;
+      gap: 18px;
+    }
 
-  button {
-    padding: 14px 26px;
-    border-radius: 10px;
-    border: none;
-    font-size: 15px;
-    font-weight: 600;
-    cursor: pointer;
-  }
+    button {
+      padding: 14px 28px;
+      font-size: 16px;
+      font-weight: 600;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+    }
 
-  .driver {
-    background: #4ade80;
-    color: #022c22;
-  }
+    .driver {
+      background: #4ade80;
+      color: #022c22;
+    }
 
-  .company {
-    background: #7aa2ff;
-    color: #0f172a;
-  }
-</style>
-
-
-body {
-  min-height: 100vh;
-  color: white;
-  overflow-x: hidden;
-}
-
-/* VIDEO BACKGROUND */
-.video-bg {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -2;
-  overflow: hidden;
-}
-
-.video-bg video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* DARK OVERLAY */
-.overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    rgba(10,14,30,0.75),
-    rgba(10,14,30,0.85)
-  );
-  z-index: -1;
-}
-
-/* HERO */
-.hero {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 40px 20px;
-}
-
-.hero h1 {
-  font-size: 3.4rem;
-  font-weight: 800;
-  margin-bottom: 12px;
-}
-
-.hero p {
-  font-size: 1.1rem;
-  opacity: 0.95;
-  max-width: 650px;
-  margin-bottom: 30px;
-}
-
-.buttons {
-  display: flex;
-  gap: 18px;
-}
-
-.btn {
-  padding: 14px 34px;
-  border-radius: 12px;
-  border: none;
-  font-weight: 600;
-  cursor: pointer;
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
-}
-
-.driver {
-  background: #22c55e;
-  color: black;
-}
-
-.company {
-  background: #60a5fa;
-  color: black;
-}
-
-/* REVIEWS */
-.reviews {
-  background: rgba(0,0,0,0.35);
-  padding: 80px 20px;
-}
-
-.review-grid {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 26px;
-}
-
-.review {
-  background: rgba(255,255,255,0.12);
-  backdrop-filter: blur(10px);
-  border-radius: 18px;
-  padding: 22px;
-}
-
-.review-header {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 12px;
-}
-
-.review-header img {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  object-fit: cover;
-}
-
-.stars {
-  color: gold;
-  font-size: 0.9rem;
-}
-
-.review p {
-  font-size: 0.95rem;
-  line-height: 1.45;
-}
-</style>
+    .company {
+      background: #7aa2ff;
+      color: #0f172a;
+    }
+  </style>
 </head>
 
 <body>
 
-<!-- VIDEO BACKGROUND -->
-<div class="video-bg">
-  <video autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1604014237800-1c9102c219da?auto=format&fit=crop&w=1920&q=80">
-    <source src="https://cdn.coverr.co/videos/coverr-semi-truck-driving-on-highway-9283/1080p.mp4" type="video/mp4">
-  </video>
-</div>
+  <!-- BACKGROUND -->
+  <div class="bg"></div>
+  <div class="overlay"></div>
 
-<div class="overlay"></div>
-
-<!-- HERO -->
-<section class="hero">
-  <h1>HaulMatch</h1>
-  <p>
-    The fastest way for trucking companies and drivers to connect nationwide.
-    Built for real freight, real drivers, and real results.
-  </p>
-
-  <div class="buttons">
-    <button class="btn driver">I’m a Driver</button>
-    <button class="btn company">I’m a Company</button>
-  </div>
-</section>
-
-<!-- REVIEWS -->
-<section class="reviews">
-  <div class="review-grid">
-
-    <div class="review">
-      <div class="review-header">
-        <img src="https://randomuser.me/api/portraits/men/32.jpg">
-        <div>
-          <strong>Mike Thompson</strong>
-          <div class="stars">★★★★★</div>
-        </div>
-      </div>
-      <p>Found a regional CDL job in under 48 hours with higher pay than any job board.</p>
+  <!-- HEADER -->
+  <header>
+    <div class="logo">
+      <div class="truck-icon"></div>
+      HaulMatch
     </div>
+  </header>
 
-    <div class="review">
-      <div class="review-header">
-        <img src="https://randomuser.me/api/portraits/women/44.jpg">
-        <div>
-          <strong>Sarah Lopez</strong>
-          <div class="stars">★★★★★</div>
-        </div>
-      </div>
-      <p>No spam, no fake posts — just legit trucking jobs and serious companies.</p>
+  <!-- HERO -->
+  <section class="hero">
+    <h1>HaulMatch</h1>
+    <p>
+      The fastest way for trucking companies and professional drivers to connect,
+      book freight, and move loads nationwide.
+    </p>
+
+    <div class="buttons">
+      <button class="driver">I’m a Driver</button>
+      <button class="company">I’m a Company</button>
     </div>
-
-    <div class="review">
-      <div class="review-header">
-        <img src="https://randomuser.me/api/portraits/men/76.jpg">
-        <div>
-          <strong>James R.</strong>
-          <div class="stars">★★★★★</div>
-        </div>
-      </div>
-      <p>I applied and got calls the same week. This platform saves real time.</p>
-    </div>
-
-    <div class="review">
-      <div class="review-header">
-        <img src="https://randomuser.me/api/portraits/men/51.jpg">
-        <div>
-          <strong>Fleet Owner</strong>
-          <div class="stars">★★★★★</div>
-        </div>
-      </div>
-      <p>Hired two drivers in one week and cut recruiter costs completely.</p>
-    </div>
-
-    <div class="review">
-      <div class="review-header">
-        <img src="https://randomuser.me/api/portraits/women/65.jpg">
-        <div>
-          <strong>Linda Parker</strong>
-          <div class="stars">★★★★★</div>
-        </div>
-      </div>
-      <p>Clean design, real people, and trucking-focused listings.</p>
-    </div>
-
-    <div class="review">
-      <div class="review-header">
-        <img src="https://randomuser.me/api/portraits/men/83.jpg">
-        <div>
-          <strong>David M.</strong>
-          <div class="stars">★★★★★</div>
-        </div>
-      </div>
-      <p>Finally a trucking platform that feels professional.</p>
-    </div>
-
-  </div>
-</section>
+  </section>
 
 </body>
 </html>
