@@ -46,20 +46,35 @@ header {
   top: 0;
   left: 0;
   width: 100%;
-  padding: 22px 40px;
+  padding: 20px 36px;
   display: flex;
   align-items: center;
-  gap: 10px;
-  font-size: 26px;
-  font-weight: 800;
   z-index: 10;
 }
 
-.logo-dot {
-  width: 14px;
-  height: 14px;
-  background: #4cd964;
-  border-radius: 4px;
+/* LOGO */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  font-size: 26px;
+  font-weight: 800;
+  text-decoration: none;
+  color: white;
+}
+
+.logo-icon {
+  width: 34px;
+  height: 34px;
+  background: linear-gradient(135deg, #5eea6a, #32c850);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  color: #0b2b12;
+  font-size: 18px;
 }
 
 /* HERO */
@@ -89,7 +104,7 @@ header {
   margin-bottom: 46px;
 }
 
-/* FANCY BUTTONS */
+/* BUTTONS */
 .buttons {
   display: flex;
   gap: 26px;
@@ -100,7 +115,6 @@ header {
   border-radius: 999px;
   font-size: 16px;
   font-weight: 800;
-  letter-spacing: 0.3px;
   border: none;
   cursor: pointer;
   position: relative;
@@ -112,7 +126,12 @@ header {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.35), transparent);
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255,255,255,0.35),
+    transparent
+  );
   transform: translateX(-100%);
   transition: transform 0.6s ease;
 }
@@ -129,7 +148,6 @@ header {
 .driver {
   background: linear-gradient(135deg, #63f07b, #2fc85b);
   color: #0b2b12;
-  box-shadow: 0 0 0 rgba(99,240,123,0);
 }
 
 .company {
@@ -137,10 +155,10 @@ header {
   color: #0b1230;
 }
 
-/* REVIEWS (MOVED UP MORE) */
+/* REVIEWS (MOVED UP AGAIN) */
 .reviews {
   width: 100%;
-  margin-top: -100px; /* moved UP another inch */
+  margin-top: -160px; /* moved UP ~1 more inch */
   padding: 40px 60px 90px;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -178,13 +196,15 @@ header {
 
 <!-- LOCKED SEMI TRUCK BACKGROUND -->
 <div class="bg-truck">
-  <img src="https://images.pexels.com/photos/2199293/pexels-photo-2199293.jpeg" alt="Freightliner Semi Truck">
+  <img src="https://images.pexels.com/photos/2199293/pexels-photo-2199293.jpeg" alt="Semi Truck">
 </div>
 <div class="overlay"></div>
 
 <header>
-  <div class="logo-dot"></div>
-  HaulMatch
+  <a href="/" class="logo">
+    <div class="logo-icon">H</div>
+    HaulMatch
+  </a>
 </header>
 
 <section class="hero">
@@ -218,7 +238,7 @@ header {
       <div><strong>Mike T. — CDL-A Driver</strong><br><span class="stars">★★★★★</span></div>
     </div>
     I was tired of expired listings and recruiters. HaulMatch connected me directly
-    with a regional carrier that respected my experience and home-time needs.
+    with a carrier that respected my experience and home-time needs.
   </div>
 
   <div class="review">
@@ -253,7 +273,7 @@ header {
       <div><strong>Amanda P. — Operations Manager</strong><br><span class="stars">★★★★★</span></div>
     </div>
     We found drivers who matched our company culture. The conversations felt
-    professional and intentional.
+    intentional and professional.
   </div>
 
 </section>
