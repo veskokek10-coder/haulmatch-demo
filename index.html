@@ -1,241 +1,249 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>HaulMatch</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8" />
+<title>HaulMatch</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-    }
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
 
-    body, html {
-      height: 100%;
-      overflow-x: hidden;
-      color: white;
-    }
+html, body {
+  height: 100%;
+  color: white;
+}
 
-    /* VIDEO BACKGROUND */
-    .video-bg {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      z-index: -2;
-    }
+/* VIDEO BACKGROUND */
+.video-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -2;
+}
 
-    /* DARK OVERLAY */
-    .overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(10, 15, 40, 0.75);
-      z-index: -1;
-    }
+/* LIGHT OVERLAY (NOT SOLID) */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(
+    rgba(10,15,40,0.55),
+    rgba(10,15,40,0.75)
+  );
+  z-index: -1;
+}
 
-    /* HEADER */
-    header {
-      padding: 30px;
-      text-align: center;
-      animation: slideDown 1.2s ease;
-    }
+/* HEADER */
+header {
+  padding: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  animation: slideDown 1.2s ease;
+}
 
-    header h1 {
-      font-size: 3.2rem;
-      font-weight: 800;
-      letter-spacing: 1px;
-    }
+/* LOGO */
+.logo {
+  width: 42px;
+  height: 42px;
+}
 
-    header p {
-      margin-top: 10px;
-      opacity: 0.9;
-    }
+h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
 
-    @keyframes slideDown {
-      from { transform: translateY(-40px); opacity: 0; }
-      to { transform: translateY(0); opacity: 1; }
-    }
+.tagline {
+  text-align: center;
+  margin-top: 10px;
+  opacity: 0.9;
+}
 
-    /* HERO */
-    .hero {
-      text-align: center;
-      margin-top: 60px;
-      animation: fadeIn 1.5s ease;
-    }
+@keyframes slideDown {
+  from { transform: translateY(-40px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
 
-    .hero h2 {
-      font-size: 1.4rem;
-      font-weight: 400;
-      opacity: 0.95;
-      margin-bottom: 25px;
-    }
+/* HERO */
+.hero {
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  animation: fadeIn 1.5s ease;
+}
 
-    .buttons {
-      display: flex;
-      justify-content: center;
-      gap: 16px;
-      margin-bottom: 60px;
-    }
+.hero h2 {
+  font-weight: 400;
+  margin: 20px 0 30px;
+}
 
-    .btn {
-      padding: 14px 26px;
-      font-size: 1rem;
-      font-weight: 600;
-      border-radius: 10px;
-      border: none;
-      cursor: pointer;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
+.buttons {
+  display: flex;
+  gap: 16px;
+}
 
-    .btn-driver {
-      background: #22c55e;
-      color: black;
-    }
+.btn {
+  padding: 14px 28px;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
 
-    .btn-company {
-      background: #60a5fa;
-      color: black;
-    }
+.btn-driver {
+  background: #22c55e;
+}
 
-    .btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-    }
+.btn-company {
+  background: #60a5fa;
+}
 
-    /* REVIEWS */
-    .reviews {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      padding: 40px 20px 80px;
-      flex-wrap: wrap;
-    }
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.4);
+}
 
-    .review {
-      background: rgba(255,255,255,0.08);
-      backdrop-filter: blur(10px);
-      padding: 20px;
-      border-radius: 16px;
-      width: 260px;
-      animation: floatUp 1.5s ease;
-    }
+/* REVIEWS AT BOTTOM */
+.reviews {
+  padding: 80px 20px;
+  display: flex;
+  justify-content: center;
+  gap: 22px;
+  flex-wrap: wrap;
+  background: rgba(0,0,0,0.25);
+  backdrop-filter: blur(6px);
+}
 
-    .review-header {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 10px;
-    }
+.review {
+  background: rgba(255,255,255,0.1);
+  border-radius: 16px;
+  padding: 20px;
+  width: 260px;
+}
 
-    .avatar {
-      width: 42px;
-      height: 42px;
-      border-radius: 50%;
-      object-fit: cover;
-    }
+.review-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
 
-    .name {
-      font-weight: 600;
-    }
+.avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+}
 
-    .stars {
-      color: gold;
-      font-size: 0.9rem;
-    }
+.name {
+  font-weight: 600;
+}
 
-    .review p {
-      font-size: 0.95rem;
-      line-height: 1.4;
-      opacity: 0.95;
-    }
+.stars {
+  color: gold;
+  font-size: 0.9rem;
+}
 
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
+.review p {
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
 
-    @keyframes floatUp {
-      from { transform: translateY(30px); opacity: 0; }
-      to { transform: translateY(0); opacity: 1; }
-    }
-  </style>
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+</style>
 </head>
 
 <body>
 
-  <!-- TRUCK VIDEO BACKGROUND -->
-  <video class="video-bg" autoplay muted loop playsinline>
-    <source src="https://cdn.coverr.co/videos/coverr-semi-truck-on-the-road-8584/1080p.mp4" type="video/mp4">
-  </video>
+<!-- TRUCK VIDEO -->
+<video class="video-bg" autoplay muted loop playsinline>
+  <source src="https://cdn.coverr.co/videos/coverr-semi-truck-driving-on-the-highway-4096/1080p.mp4" type="video/mp4">
+</video>
 
-  <div class="overlay"></div>
+<div class="overlay"></div>
 
-  <!-- HEADER -->
-  <header>
-    <h1>HaulMatch</h1>
-    <p>The fastest way for trucking companies and drivers to connect nationwide</p>
-  </header>
+<!-- HEADER -->
+<header>
+  <!-- SVG LOGO -->
+  <svg class="logo" viewBox="0 0 64 64" fill="none">
+    <rect x="4" y="18" width="36" height="18" rx="4" fill="#22c55e"/>
+    <rect x="40" y="24" width="20" height="12" rx="3" fill="#60a5fa"/>
+    <circle cx="18" cy="42" r="4" fill="white"/>
+    <circle cx="46" cy="42" r="4" fill="white"/>
+  </svg>
 
-  <!-- HERO -->
-  <section class="hero">
-    <h2>Find loads. Hire drivers. Move freight — faster.</h2>
+  <h1>HaulMatch</h1>
+</header>
 
-    <div class="buttons">
-      <button class="btn btn-driver" onclick="alert('Driver signup coming next')">
-        I’m a Driver
-      </button>
-      <button class="btn btn-company" onclick="alert('Company signup coming next')">
-        I’m a Company
-      </button>
-    </div>
-  </section>
+<p class="tagline">
+  The fastest way for trucking companies and drivers to connect nationwide
+</p>
 
-  <!-- REVIEWS -->
-  <section class="reviews">
-    <div class="review">
-      <div class="review-header">
-        <img class="avatar" src="https://randomuser.me/api/portraits/men/32.jpg">
-        <div>
-          <div class="name">Mike T.</div>
-          <div class="stars">★★★★★</div>
-        </div>
+<!-- HERO -->
+<section class="hero">
+  <h2>Find loads. Hire drivers. Move freight — faster.</h2>
+
+  <div class="buttons">
+    <button class="btn btn-driver" onclick="alert('Driver signup coming next')">
+      I’m a Driver
+    </button>
+    <button class="btn btn-company" onclick="alert('Company signup coming next')">
+      I’m a Company
+    </button>
+  </div>
+</section>
+
+<!-- REVIEWS BOTTOM -->
+<section class="reviews">
+  <div class="review">
+    <div class="review-header">
+      <img class="avatar" src="https://randomuser.me/api/portraits/men/32.jpg">
+      <div>
+        <div class="name">Mike T.</div>
+        <div class="stars">★★★★★</div>
       </div>
-      <p>
-        Found a regional driving job in under 48 hours. Pay was better than anything I saw on job boards.
-      </p>
     </div>
+    <p>Found a regional driving job in under 48 hours. Best pay I’ve seen.</p>
+  </div>
 
-    <div class="review">
-      <div class="review-header">
-        <img class="avatar" src="https://randomuser.me/api/portraits/women/44.jpg">
-        <div>
-          <div class="name">Sarah L.</div>
-          <div class="stars">★★★★★</div>
-        </div>
+  <div class="review">
+    <div class="review-header">
+      <img class="avatar" src="https://randomuser.me/api/portraits/women/44.jpg">
+      <div>
+        <div class="name">Sarah L.</div>
+        <div class="stars">★★★★★</div>
       </div>
-      <p>
-        Way better than Indeed or Facebook groups. Everything is trucking-focused and simple.
-      </p>
     </div>
+    <p>Everything is trucking-focused. No spam. No nonsense.</p>
+  </div>
 
-    <div class="review">
-      <div class="review-header">
-        <img class="avatar" src="https://randomuser.me/api/portraits/men/61.jpg">
-        <div>
-          <div class="name">Fleet Owner</div>
-          <div class="stars">★★★★★</div>
-        </div>
+  <div class="review">
+    <div class="review-header">
+      <img class="avatar" src="https://randomuser.me/api/portraits/men/61.jpg">
+      <div>
+        <div class="name">Fleet Owner</div>
+        <div class="stars">★★★★★</div>
       </div>
-      <p>
-        Hired two qualified drivers in one week. This saves us thousands in recruiter fees.
-      </p>
     </div>
-  </section>
+    <p>Hired two drivers in one week. Saved thousands.</p>
+  </div>
+</section>
 
 </body>
 </html>
