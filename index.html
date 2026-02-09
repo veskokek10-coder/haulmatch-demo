@@ -1,228 +1,241 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>HaulMatch</title>
+  <meta charset="UTF-8" />
+  <title>HaulMatch</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<style>
-html, body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  font-family: Arial, Helvetica, sans-serif;
-  background: #0f172a;
-}
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    }
 
-/* ===== FALLBACK BACKGROUND (ALWAYS VISIBLE) ===== */
-.bg-fallback {
-  position: fixed;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
-    url("https://images.unsplash.com/photo-1601584115197-04ecc0da31d5?auto=format&fit=crop&w=1920&q=80");
-  background-size: cover;
-  background-position: center;
-  z-index: -3;
-}
+    body, html {
+      height: 100%;
+      overflow-x: hidden;
+      color: white;
+    }
 
-/* ===== VIDEO BACKGROUND ===== */
-video {
-  position: fixed;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: -2;
-}
+    /* VIDEO BACKGROUND */
+    .video-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -2;
+    }
 
-/* ===== CONTENT ===== */
-.container {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 30px;
-  color: white;
-}
+    /* DARK OVERLAY */
+    .overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(10, 15, 40, 0.75);
+      z-index: -1;
+    }
 
-h1 {
-  font-size: 3.2rem;
-  margin-bottom: 10px;
-}
+    /* HEADER */
+    header {
+      padding: 30px;
+      text-align: center;
+      animation: slideDown 1.2s ease;
+    }
 
-p {
-  max-width: 700px;
-  font-size: 1.2rem;
-}
+    header h1 {
+      font-size: 3.2rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
 
-/* ===== BUTTONS ===== */
-.buttons button {
-  padding: 14px 30px;
-  font-size: 1rem;
-  border-radius: 10px;
-  border: none;
-  cursor: pointer;
-  font-weight: bold;
-  margin: 10px;
-}
+    header p {
+      margin-top: 10px;
+      opacity: 0.9;
+    }
 
-.driver { background: #22c55e; color: black; }
-.company { background: #38bdf8; color: black; }
+    @keyframes slideDown {
+      from { transform: translateY(-40px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
 
-/* ===== AUTH CARD ===== */
-.card {
-  background: rgba(255,255,255,0.15);
-  backdrop-filter: blur(12px);
-  border-radius: 16px;
-  padding: 25px;
-  max-width: 360px;
-  width: 100%;
-}
+    /* HERO */
+    .hero {
+      text-align: center;
+      margin-top: 60px;
+      animation: fadeIn 1.5s ease;
+    }
 
-input {
-  width: 100%;
-  padding: 12px;
-  margin-top: 10px;
-  border-radius: 8px;
-  border: none;
-}
+    .hero h2 {
+      font-size: 1.4rem;
+      font-weight: 400;
+      opacity: 0.95;
+      margin-bottom: 25px;
+    }
 
-.card button {
-  width: 100%;
-  margin-top: 15px;
-  padding: 12px;
-  border-radius: 8px;
-  border: none;
-  font-weight: bold;
-  cursor: pointer;
-}
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin-bottom: 60px;
+    }
 
-.hidden { display: none; }
+    .btn {
+      padding: 14px 26px;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
 
-/* ===== REVIEWS ===== */
-.reviews {
-  margin-top: 50px;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 20px;
-  max-width: 900px;
-}
+    .btn-driver {
+      background: #22c55e;
+      color: black;
+    }
 
-.review {
-  background: rgba(255,255,255,0.15);
-  backdrop-filter: blur(10px);
-  padding: 20px;
-  border-radius: 14px;
-  text-align: left;
-}
+    .btn-company {
+      background: #60a5fa;
+      color: black;
+    }
 
-.review-header {
-  display: flex;
-  align-items: center;
-  margin-bottom: 10px;
-}
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    }
 
-.review-header img {
-  width: 45px;
-  height: 45px;
-  border-radius: 50%;
-  margin-right: 12px;
-}
+    /* REVIEWS */
+    .reviews {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding: 40px 20px 80px;
+      flex-wrap: wrap;
+    }
 
-.stars { color: gold; }
-</style>
+    .review {
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(10px);
+      padding: 20px;
+      border-radius: 16px;
+      width: 260px;
+      animation: floatUp 1.5s ease;
+    }
+
+    .review-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+
+    .avatar {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .name {
+      font-weight: 600;
+    }
+
+    .stars {
+      color: gold;
+      font-size: 0.9rem;
+    }
+
+    .review p {
+      font-size: 0.95rem;
+      line-height: 1.4;
+      opacity: 0.95;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes floatUp {
+      from { transform: translateY(30px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+  </style>
 </head>
 
 <body>
 
-<!-- ALWAYS-VISIBLE BACKGROUND -->
-<div class="bg-fallback"></div>
+  <!-- TRUCK VIDEO BACKGROUND -->
+  <video class="video-bg" autoplay muted loop playsinline>
+    <source src="https://cdn.coverr.co/videos/coverr-semi-truck-on-the-road-8584/1080p.mp4" type="video/mp4">
+  </video>
 
-<!-- 🚛 FULL-SCREEN TRUCK VIDEO -->
-<video autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1601584115197-04ecc0da31d5?auto=format&fit=crop&w=1920&q=80">
-  <source src="https://cdn.coverr.co/videos/coverr-truck-driving-on-the-highway-8459/1080p.mp4" type="video/mp4">
-</video>
+  <div class="overlay"></div>
 
-<div class="container">
-
-  <!-- HOME -->
-  <div id="home">
+  <!-- HEADER -->
+  <header>
     <h1>HaulMatch</h1>
-    <p>The fastest way for trucking companies and drivers to connect nationwide.</p>
+    <p>The fastest way for trucking companies and drivers to connect nationwide</p>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <h2>Find loads. Hire drivers. Move freight — faster.</h2>
 
     <div class="buttons">
-      <button class="driver" onclick="openAuth('Driver')">I'm a Driver</button>
-      <button class="company" onclick="openAuth('Company')">I'm a Company</button>
+      <button class="btn btn-driver" onclick="alert('Driver signup coming next')">
+        I’m a Driver
+      </button>
+      <button class="btn btn-company" onclick="alert('Company signup coming next')">
+        I’m a Company
+      </button>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section class="reviews">
+    <div class="review">
+      <div class="review-header">
+        <img class="avatar" src="https://randomuser.me/api/portraits/men/32.jpg">
+        <div>
+          <div class="name">Mike T.</div>
+          <div class="stars">★★★★★</div>
+        </div>
+      </div>
+      <p>
+        Found a regional driving job in under 48 hours. Pay was better than anything I saw on job boards.
+      </p>
     </div>
 
-    <div class="reviews">
-      <div class="review">
-        <div class="review-header">
-          <img src="https://randomuser.me/api/portraits/men/32.jpg">
-          <div>
-            <strong>Mike T.</strong>
-            <div class="stars">★★★★★</div>
-          </div>
+    <div class="review">
+      <div class="review-header">
+        <img class="avatar" src="https://randomuser.me/api/portraits/women/44.jpg">
+        <div>
+          <div class="name">Sarah L.</div>
+          <div class="stars">★★★★★</div>
         </div>
-        Found a regional job in under 48 hours.
       </div>
-
-      <div class="review">
-        <div class="review-header">
-          <img src="https://randomuser.me/api/portraits/women/45.jpg">
-          <div>
-            <strong>Sarah L.</strong>
-            <div class="stars">★★★★★</div>
-          </div>
-        </div>
-        Way better than job boards.
-      </div>
-
-      <div class="review">
-        <div class="review-header">
-          <img src="https://randomuser.me/api/portraits/men/64.jpg">
-          <div>
-            <strong>Fleet Owner</strong>
-            <div class="stars">★★★★★</div>
-          </div>
-        </div>
-        Hired two drivers in one week.
-      </div>
+      <p>
+        Way better than Indeed or Facebook groups. Everything is trucking-focused and simple.
+      </p>
     </div>
-  </div>
 
-  <!-- AUTH -->
-  <div id="auth" class="hidden">
-    <div class="card">
-      <h2 id="roleTitle"></h2>
-      <input placeholder="Email">
-      <input type="password" placeholder="Password">
-      <button onclick="login()">Login / Register</button>
-      <button onclick="goHome()">Back</button>
+    <div class="review">
+      <div class="review-header">
+        <img class="avatar" src="https://randomuser.me/api/portraits/men/61.jpg">
+        <div>
+          <div class="name">Fleet Owner</div>
+          <div class="stars">★★★★★</div>
+        </div>
+      </div>
+      <p>
+        Hired two qualified drivers in one week. This saves us thousands in recruiter fees.
+      </p>
     </div>
-  </div>
-
-</div>
-
-<script>
-function openAuth(role) {
-  document.getElementById('home').classList.add('hidden');
-  document.getElementById('auth').classList.remove('hidden');
-  document.getElementById('roleTitle').innerText = role + " Login";
-}
-
-function goHome() {
-  document.getElementById('auth').classList.add('hidden');
-  document.getElementById('home').classList.remove('hidden');
-}
-
-function login() {
-  alert("Demo login successful!");
-}
-</script>
+  </section>
 
 </body>
 </html>
