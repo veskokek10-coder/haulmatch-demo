@@ -21,17 +21,16 @@ body {
   background-image: url("https://images.unsplash.com/photo-1601584115197-04ecc0da31d7");
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
   background-attachment: fixed;
   color: white;
   overflow-x: hidden;
 }
 
-/* OVERLAY */
+/* DARK OVERLAY */
 .overlay {
   position: fixed;
   inset: 0;
-  background: rgba(10, 15, 30, 0.68);
+  background: rgba(10, 15, 30, 0.7);
   z-index: 0;
 }
 
@@ -72,7 +71,6 @@ header {
   max-width: 780px;
   margin: 0 auto 18px;
   font-size: 18px;
-  line-height: 1.5;
 }
 
 .hero .sub {
@@ -90,8 +88,8 @@ header {
 }
 
 .btn {
-  padding: 16px 40px;
-  border-radius: 16px;
+  padding: 16px 42px;
+  border-radius: 18px;
   font-size: 16px;
   font-weight: 700;
   border: none;
@@ -100,7 +98,7 @@ header {
 }
 
 .btn:hover {
-  transform: translateY(-3px);
+  transform: translateY(-4px);
   box-shadow: 0 14px 34px rgba(0,0,0,0.4);
 }
 
@@ -114,25 +112,55 @@ header {
   color: #0b1230;
 }
 
-/* TRUCK ANIMATION */
+/* ANIMATED SEMI TRUCK */
 .truck-lane {
   position: relative;
   z-index: 2;
-  margin: 140px 0 50px;
-  height: 120px;
+  margin: 140px 0 40px;
+  height: 80px;
   overflow: hidden;
 }
 
 .truck {
   position: absolute;
-  left: -320px;
-  top: 10px;
-  width: 280px;
-  animation: drive 15s linear infinite;
+  left: -300px;
+  top: 20px;
+  display: flex;
+  align-items: center;
+  animation: drive 12s linear infinite;
 }
 
+.cab {
+  width: 70px;
+  height: 40px;
+  background: #e53935;
+  border-radius: 6px 6px 4px 4px;
+}
+
+.trailer {
+  width: 160px;
+  height: 36px;
+  background: #e0e0e0;
+  margin-left: 4px;
+  border-radius: 4px;
+}
+
+.wheel {
+  width: 14px;
+  height: 14px;
+  background: #111;
+  border-radius: 50%;
+  position: absolute;
+  bottom: -6px;
+}
+
+.w1 { left: 14px; }
+.w2 { left: 44px; }
+.w3 { left: 110px; }
+.w4 { left: 140px; }
+
 @keyframes drive {
-  from { left: -340px; }
+  from { left: -300px; }
   to { left: 110%; }
 }
 
@@ -141,7 +169,7 @@ header {
   position: relative;
   z-index: 2;
   margin-top: 80px;
-  padding: 110px 60px;
+  padding: 100px 60px;
   background: rgba(0,0,0,0.45);
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -149,7 +177,7 @@ header {
 }
 
 .review {
-  background: rgba(255,255,255,0.13);
+  background: rgba(255,255,255,0.14);
   padding: 24px;
   border-radius: 18px;
 }
@@ -185,30 +213,34 @@ header {
 
 <section class="hero">
   <h1>HaulMatch</h1>
-
   <p>
     A hiring platform built specifically for the trucking industry — connecting
     professional drivers with verified trucking companies.
   </p>
-
   <p class="sub">
-    No job boards. No spam. Just direct matches between drivers looking for
-    quality work and companies hiring reliable professionals.
+    No job boards. No spam. Just real matches between drivers and companies.
   </p>
 
   <div class="buttons">
-    <button class="btn driver">I’m a Driver</button>
-    <button class="btn company">I’m a Company</button>
+    <button class="btn driver" onclick="window.location.href='/signup-driver'">
+      I’m a Driver
+    </button>
+    <button class="btn company" onclick="window.location.href='/signup-company'">
+      I’m a Company
+    </button>
   </div>
 </section>
 
-<!-- MOVING SEMI TRUCK -->
+<!-- PURE CSS ANIMATED TRUCK -->
 <div class="truck-lane">
-  <img
-    class="truck"
-    src="https://images.unsplash.com/photo-1616432043562-3671ea2e5242"
-    alt="Semi Truck Driving"
-  >
+  <div class="truck">
+    <div class="cab"></div>
+    <div class="trailer"></div>
+    <div class="wheel w1"></div>
+    <div class="wheel w2"></div>
+    <div class="wheel w3"></div>
+    <div class="wheel w4"></div>
+  </div>
 </div>
 
 <section class="reviews">
@@ -217,7 +249,7 @@ header {
       <img src="https://randomuser.me/api/portraits/men/32.jpg">
       <div><strong>Mike T.</strong><br><span class="stars">★★★★★</span></div>
     </div>
-    Matched with a regional carrier in under 48 hours. No recruiters blowing up my phone.
+    Found a regional driving job in under 48 hours.
   </div>
 
   <div class="review">
@@ -225,7 +257,7 @@ header {
       <img src="https://randomuser.me/api/portraits/women/44.jpg">
       <div><strong>Sarah L.</strong><br><span class="stars">★★★★★</span></div>
     </div>
-    Finally a platform that understands trucking jobs — not generic listings.
+    Finally a platform built for trucking jobs.
   </div>
 
   <div class="review">
@@ -233,7 +265,7 @@ header {
       <img src="https://randomuser.me/api/portraits/men/65.jpg">
       <div><strong>Fleet Owner</strong><br><span class="stars">★★★★★</span></div>
     </div>
-    We hired two qualified drivers in one week. No agencies. No wasted time.
+    Hired two drivers in one week.
   </div>
 
   <div class="review">
@@ -241,7 +273,7 @@ header {
       <img src="https://randomuser.me/api/portraits/men/12.jpg">
       <div><strong>James R.</strong><br><span class="stars">★★★★★</span></div>
     </div>
-    Way better than job boards. Companies actually respond here.
+    Way better than job boards.
   </div>
 
   <div class="review">
@@ -249,7 +281,7 @@ header {
       <img src="https://randomuser.me/api/portraits/women/22.jpg">
       <div><strong>Amanda K.</strong><br><span class="stars">★★★★★</span></div>
     </div>
-    Found a driver that fit our operation perfectly within days.
+    Clean, simple, and effective.
   </div>
 
   <div class="review">
@@ -257,7 +289,7 @@ header {
       <img src="https://randomuser.me/api/portraits/men/81.jpg">
       <div><strong>Robert D.</strong><br><span class="stars">★★★★★</span></div>
     </div>
-    Legit companies, real jobs, and no nonsense.
+    Legit companies. Real jobs.
   </div>
 </section>
 
