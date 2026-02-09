@@ -16,15 +16,15 @@
       min-height: 100vh;
       color: white;
 
-      /* YOUR OWN SEMI TRUCK IMAGE */
+      /* FIXED SEMI TRUCK BACKGROUND — NEVER CHANGES */
       background:
-        linear-gradient(rgba(12,16,32,0.78), rgba(12,16,32,0.92)),
-        url("trucks.jpg");
+        linear-gradient(rgba(14,18,35,0.78), rgba(14,18,35,0.92)),
+        url("https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=2400&q=80");
 
       background-size: cover;
       background-position: center center;
       background-repeat: no-repeat;
-      background-attachment: fixed; /* LOCKS BACKGROUND */
+      background-attachment: fixed;
     }
 
     header {
@@ -148,22 +148,15 @@
     }
 
     .review-header {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 10px;
-    }
-
-    .review-header img {
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      object-fit: cover;
+      font-weight: 700;
+      margin-bottom: 6px;
+      font-size: 14px;
     }
 
     .stars {
       color: #facc15;
       font-size: 14px;
+      margin-bottom: 10px;
     }
 
     .review p {
@@ -201,13 +194,8 @@
 
   <div class="reviews">
     <div class="review">
-      <div class="review-header">
-        <img src="https://randomuser.me/api/portraits/men/32.jpg">
-        <div>
-          <strong>Mike T. — CDL-A Driver</strong><br>
-          <span class="stars">★★★★★</span>
-        </div>
-      </div>
+      <div class="review-header">Mike T. — CDL-A Driver</div>
+      <div class="stars">★★★★★</div>
       <p>
         HaulMatch connected me directly with a regional carrier that fit my
         experience and home-time needs. No recruiters, no spam.
@@ -215,27 +203,17 @@
     </div>
 
     <div class="review">
-      <div class="review-header">
-        <img src="https://randomuser.me/api/portraits/women/45.jpg">
-        <div>
-          <strong>Sarah L. — Owner Operator</strong><br>
-          <span class="stars">★★★★★</span>
-        </div>
-      </div>
+      <div class="review-header">Sarah L. — Owner Operator</div>
+      <div class="stars">★★★★★</div>
       <p>
         I spoke directly with fleet managers and secured a contract that fit my
-        operation perfectly. This platform understands trucking.
+        operation perfectly. This platform actually understands trucking.
       </p>
     </div>
 
     <div class="review">
-      <div class="review-header">
-        <img src="https://randomuser.me/api/portraits/men/54.jpg">
-        <div>
-          <strong>James R. — Fleet Owner</strong><br>
-          <span class="stars">★★★★★</span>
-        </div>
-      </div>
+      <div class="review-header">James R. — Fleet Owner</div>
+      <div class="stars">★★★★★</div>
       <p>
         We hired two qualified drivers within a week. No wasted time — just
         serious candidates.
@@ -243,13 +221,8 @@
     </div>
 
     <div class="review">
-      <div class="review-header">
-        <img src="https://randomuser.me/api/portraits/men/71.jpg">
-        <div>
-          <strong>Daniel K. — Regional Driver</strong><br>
-          <span class="stars">★★★★★</span>
-        </div>
-      </div>
+      <div class="review-header">Daniel K. — Regional Driver</div>
+      <div class="stars">★★★★★</div>
       <p>
         Pay, routes, and expectations were clear from day one. HaulMatch is the
         best trucking platform I’ve used.
@@ -260,4 +233,3 @@
 
 </body>
 </html>
-
