@@ -16,8 +16,8 @@
       min-height: 100vh;
       color: white;
       background:
-        linear-gradient(rgba(15,20,40,0.65), rgba(15,20,40,0.85)),
-        url("https://images.unsplash.com/photo-1603553329474-2dfcc4b8b56b?auto=format&fit=crop&w=2000&q=80");
+        linear-gradient(rgba(15,20,40,0.65), rgba(15,20,40,0.9)),
+        url("https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=2000&q=80");
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
@@ -76,6 +76,8 @@
       margin-top: 30px;
       display: flex;
       gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
     }
 
     .btn {
@@ -114,12 +116,24 @@
       margin-top: 160px;
       padding-bottom: 80px;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      grid-template-columns: repeat(4, 1fr);
       gap: 24px;
       max-width: 1200px;
       width: 100%;
       padding-left: 40px;
       padding-right: 40px;
+    }
+
+    @media (max-width: 1000px) {
+      .reviews {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .reviews {
+        grid-template-columns: 1fr;
+      }
     }
 
     .review {
@@ -170,14 +184,13 @@
 
   <p class="subtitle">
     A hiring platform built specifically for the trucking industry — connecting
-    professional drivers with verified trucking companies.  
+    professional drivers with verified trucking companies.
     <br /><br />
     No job boards. No spam. Just real connections between drivers looking for
     long-term work and companies hiring dependable professionals.
   </p>
 
   <div class="buttons">
-    <!-- THIS IS THE FIX -->
     <a href="driver-signup.html" class="btn driver">I’m a Driver</a>
     <a href="company-signup.html" class="btn company">I’m a Company</a>
   </div>
@@ -193,8 +206,7 @@
       </div>
       <p>
         I was tired of expired listings and recruiters. HaulMatch connected me
-        directly with a regional carrier that fit my experience and home-time
-        needs.
+        directly with a regional carrier that fit my experience and home-time needs.
       </p>
     </div>
 
@@ -221,7 +233,7 @@
         </div>
       </div>
       <p>
-        We hired two qualified drivers within a week. No noise, no wasted time,
+        We hired two qualified drivers within a week. No noise, no wasted time —
         just serious candidates.
       </p>
     </div>
@@ -235,22 +247,8 @@
         </div>
       </div>
       <p>
-        Pay, routes, and expectations were clear from day one. Haulmatch is the best No guessing, no
-        chasing people for answers.
-      </p>
-    </div>
-
-    <div class="review">
-      <div class="review-header">
-        <img src="https://randomuser.me/api/portraits/women/68.jpg" />
-        <div>
-          <strong>Amanda P. — Operations Manager</strong><br />
-          <span class="stars">★★★★★</span>
-        </div>
-      </div>
-      <p>
-        We found drivers who actually matched our company culture. Conversations
-        felt professional, not like scrolling random resumes.
+        Pay, routes, and expectations were clear from day one. HaulMatch is the
+        best trucking platform I’ve used.
       </p>
     </div>
   </div>
