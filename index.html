@@ -1,105 +1,166 @@
-<style>
-  html, body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-  }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>HaulMatch</title>
 
-  body {
-    font-family: Arial, Helvetica, sans-serif;
-    background-image:
-      linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)),
-      url("https://images.unsplash.com/photo-1581092919535-7146b8e28c35?auto=format&fit=crop&w=1920&q=80");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    color: white;
-  }
+  <style>
+    html, body {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
 
-  .container {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 30px;
-    text-align: center;
-  }
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background-color: #0f172a; /* fallback color */
+      background-image:
+        linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+        url("https://images.unsplash.com/photo-1529070538774-1843cb3265df?auto=format&fit=crop&w=1920&q=80");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      color: white;
+    }
 
-  h1 {
-    font-size: 3.2rem;
-    margin-bottom: 10px;
-  }
+    .container {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 30px;
+      text-align: center;
+      box-sizing: border-box;
+    }
 
-  p {
-    font-size: 1.2rem;
-    max-width: 700px;
-    line-height: 1.6;
-  }
+    h1 {
+      font-size: 3.2rem;
+      margin-bottom: 10px;
+    }
 
-  .buttons {
-    margin-top: 30px;
-  }
+    p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      line-height: 1.6;
+    }
 
-  button {
-    padding: 14px 30px;
-    font-size: 1rem;
-    border: none;
-    border-radius: 10px;
-    margin: 10px;
-    cursor: pointer;
-    font-weight: bold;
-  }
+    .buttons {
+      margin-top: 30px;
+    }
 
-  .driver {
-    background-color: #22c55e;
-    color: black;
-  }
+    button {
+      padding: 14px 30px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 10px;
+      margin: 10px;
+      cursor: pointer;
+      font-weight: bold;
+    }
 
-  .company {
-    background-color: #38bdf8;
-    color: black;
-  }
+    .driver {
+      background-color: #22c55e;
+      color: black;
+    }
 
-  .reviews {
-    margin-top: 60px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    max-width: 900px;
-    width: 100%;
-  }
+    .company {
+      background-color: #38bdf8;
+      color: black;
+    }
 
-  .review-card {
-    background: rgba(255,255,255,0.15);
-    backdrop-filter: blur(10px);
-    border-radius: 16px;
-    padding: 20px;
-    text-align: left;
-  }
+    .reviews {
+      margin-top: 60px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      max-width: 900px;
+      width: 100%;
+    }
 
-  .review-header {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-  }
+    .review-card {
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(12px);
+      border-radius: 16px;
+      padding: 20px;
+      text-align: left;
+    }
 
-  .review-header img {
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
-    margin-right: 12px;
-    object-fit: cover;
-  }
+    .review-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+    }
 
-  .review-name {
-    font-weight: bold;
-  }
+    .review-header img {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      margin-right: 12px;
+      object-fit: cover;
+    }
 
-  .stars {
-    color: gold;
-    font-size: 1.1rem;
-  }
-</style>
+    .review-name {
+      font-weight: bold;
+    }
 
+    .stars {
+      color: gold;
+      font-size: 1.1rem;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>HaulMatch</h1>
+    <p>
+      The fastest way for trucking companies to find drivers — and for drivers
+      to find high-paying loads nationwide.
+    </p>
+
+    <div class="buttons">
+      <button class="driver">I'm a Driver</button>
+      <button class="company">I'm a Company</button>
+    </div>
+
+    <div class="reviews">
+      <div class="review-card">
+        <div class="review-header">
+          <img src="https://randomuser.me/api/portraits/men/32.jpg">
+          <div>
+            <div class="review-name">Mike T.</div>
+            <div class="stars">★★★★★</div>
+          </div>
+        </div>
+        <p>Found a regional driving job in under 48 hours. Super smooth.</p>
+      </div>
+
+      <div class="review-card">
+        <div class="review-header">
+          <img src="https://randomuser.me/api/portraits/women/45.jpg">
+          <div>
+            <div class="review-name">Sarah L.</div>
+            <div class="stars">★★★★★</div>
+          </div>
+        </div>
+        <p>Way better than Facebook groups or job boards. Legit platform.</p>
+      </div>
+
+      <div class="review-card">
+        <div class="review-header">
+          <img src="https://randomuser.me/api/portraits/men/64.jpg">
+          <div>
+            <div class="review-name">Fleet Owner</div>
+            <div class="stars">★★★★★</div>
+          </div>
+        </div>
+        <p>Hired two drivers in one week. Saved us tons of time.</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
