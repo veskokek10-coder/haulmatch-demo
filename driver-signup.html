@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HaulMatch – Driver Signup</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: #fff;
+      background:
+        linear-gradient(rgba(10,15,30,0.75), rgba(10,15,30,0.85)),
+        url("https://images.unsplash.com/photo-1605559424843-9e4c6f4cba35?auto=format&fit=crop&w=2400&q=80");
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 520px;
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(12px);
+      border-radius: 18px;
+      padding: 36px;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.45);
+    }
+
+    .logo {
+      text-align: center;
+      margin-bottom: 10px;
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: 0.3px;
+    }
+
+    .subtitle {
+      text-align: center;
+      font-size: 14px;
+      opacity: 0.85;
+      margin-bottom: 28px;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 24px;
+      font-size: 22px;
+    }
+
+    form {
+      display: grid;
+      gap: 14px;
+    }
+
+    label {
+      font-size: 13px;
+      opacity: 0.9;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 12px 14px;
+      border-radius: 10px;
+      border: none;
+      outline: none;
+      font-size: 14px;
+      background: rgba(255,255,255,0.92);
+    }
+
+    input::placeholder {
+      color: #888;
+    }
+
+    .row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .btn {
+      margin-top: 14px;
+      padding: 14px;
+      border-radius: 12px;
+      border: none;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      background: linear-gradient(135deg, #3ddb64, #28b74d);
+      color: #0a140d;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 30px rgba(61,219,100,0.35);
+    }
+
+    .footer {
+      text-align: center;
+      font-size: 13px;
+      margin-top: 20px;
+      opacity: 0.8;
+    }
+
+    .footer a {
+      color: #9ab6ff;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 520px) {
+      .row {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="logo">🚛 HaulMatch</div>
+    <div class="subtitle">
+      Connect directly with verified trucking companies — no job boards, no spam.
+    </div>
+
+    <h2>Driver Signup</h2>
+
+    <form>
+      <div class="row">
+        <div>
+          <label>First Name</label>
+          <input type="text" placeholder="John" required />
+        </div>
+        <div>
+          <label>Last Name</label>
+          <input type="text" placeholder="Doe" required />
+        </div>
+      </div>
+
+      <div>
+        <label>Email</label>
+        <input type="email" placeholder="john@email.com" required />
+      </div>
+
+      <div>
+        <label>Phone Number</label>
+        <input type="tel" placeholder="(555) 555-5555" required />
+      </div>
+
+      <div class="row">
+        <div>
+          <label>License Type</label>
+          <select required>
+            <option value="">Select</option>
+            <option>CDL A</option>
+            <option>CDL B</option>
+            <option>Non-CDL</option>
+          </select>
+        </div>
+
+        <div>
+          <label>Years of Experience</label>
+          <select required>
+            <option value="">Select</option>
+            <option>0–1</option>
+            <option>1–3</option>
+            <option>3–5</option>
+            <option>5+</option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <label>Preferred Work Type</label>
+        <select required>
+          <option value="">Select</option>
+          <option>Local</option>
+          <option>Regional</option>
+          <option>OTR</option>
+        </select>
+      </div>
+
+      <button class="btn" type="submit">
+        Create Driver Profile
+      </button>
+    </form>
+
+    <div class="footer">
+      Already have an account?
+      <a href="/">Go back home</a>
+    </div>
+  </div>
+
+</body>
+</html>
