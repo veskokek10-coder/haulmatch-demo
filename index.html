@@ -14,63 +14,44 @@
 }
 
 html, body {
+  width: 100%;
   height: 100%;
+  overflow-x: hidden;
   color: white;
 }
 
 /* VIDEO BACKGROUND */
-.video-bg {
+#bg-video {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
+  min-width: 100%;
+  min-height: 100%;
   object-fit: cover;
-  z-index: -2;
+  z-index: -3;
 }
 
-/* LIGHT OVERLAY (NOT SOLID) */
-.overlay {
+/* DARK GRADIENT OVERLAY */
+#overlay {
   position: fixed;
   inset: 0;
   background: linear-gradient(
-    rgba(10,15,40,0.55),
-    rgba(10,15,40,0.75)
+    rgba(15,20,45,0.55),
+    rgba(15,20,45,0.85)
   );
-  z-index: -1;
+  z-index: -2;
 }
 
 /* HEADER */
 header {
   padding: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 14px;
-  animation: slideDown 1.2s ease;
+  text-align: center;
+  animation: dropIn 1.2s ease;
 }
 
-/* LOGO */
-.logo {
-  width: 42px;
-  height: 42px;
-}
-
-h1 {
+header h1 {
   font-size: 3rem;
   font-weight: 800;
-  letter-spacing: 1px;
-}
-
-.tagline {
-  text-align: center;
-  margin-top: 10px;
-  opacity: 0.9;
-}
-
-@keyframes slideDown {
-  from { transform: translateY(-40px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
 }
 
 /* HERO */
@@ -78,15 +59,15 @@ h1 {
   min-height: 80vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   text-align: center;
-  animation: fadeIn 1.5s ease;
 }
 
-.hero h2 {
-  font-weight: 400;
-  margin: 20px 0 30px;
+.hero p {
+  margin: 15px 0 30px;
+  font-size: 1.2rem;
+  opacity: 0.9;
 }
 
 .buttons {
@@ -95,61 +76,34 @@ h1 {
 }
 
 .btn {
-  padding: 14px 28px;
-  border-radius: 10px;
-  font-size: 1rem;
-  font-weight: 600;
+  padding: 14px 30px;
+  border-radius: 12px;
   border: none;
+  font-weight: 600;
   cursor: pointer;
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.btn-driver {
-  background: #22c55e;
-}
-
-.btn-company {
-  background: #60a5fa;
+  transition: transform 0.2s;
 }
 
 .btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 25px rgba(0,0,0,0.4);
+  transform: translateY(-3px);
 }
 
-/* REVIEWS AT BOTTOM */
-.reviews {
-  padding: 80px 20px;
-  display: flex;
-  justify-content: center;
-  gap: 22px;
-  flex-wrap: wrap;
-  background: rgba(0,0,0,0.25);
-  backdrop-filter: blur(6px);
+.driver { background: #22c55e; }
+.company { background: #60a5fa; }
+
+/* FLOATING REVIEWS */
+.bubble {
+  position: absolute;
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(8px);
+  padding: 18px;
+  width: 240px;
+  border-radius: 18px;
+  animation: float 20s infinite linear;
 }
 
-.review {
-  background: rgba(255,255,255,0.1);
-  border-radius: 16px;
-  padding: 20px;
-  width: 260px;
-}
-
-.review-header {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 10px;
-}
-
-.avatar {
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
-}
-
-.name {
-  font-weight: 600;
+.bubble h4 {
+  margin-bottom: 6px;
 }
 
 .stars {
@@ -157,14 +111,18 @@ h1 {
   font-size: 0.9rem;
 }
 
-.review p {
-  font-size: 0.95rem;
-  line-height: 1.4;
+@keyframes float {
+  from {
+    transform: translateY(110vh);
+  }
+  to {
+    transform: translateY(-150vh);
+  }
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+@keyframes dropIn {
+  from { opacity: 0; transform: translateY(-40px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 </style>
 </head>
@@ -172,78 +130,55 @@ h1 {
 <body>
 
 <!-- TRUCK VIDEO -->
-<video class="video-bg" autoplay muted loop playsinline>
-  <source src="https://cdn.coverr.co/videos/coverr-semi-truck-driving-on-the-highway-4096/1080p.mp4" type="video/mp4">
+<video id="bg-video" autoplay muted loop playsinline>
+  <source src="https://cdn.coverr.co/videos/coverr-semi-truck-driving-on-highway-9714/1080p.mp4" type="video/mp4">
 </video>
 
-<div class="overlay"></div>
+<div id="overlay"></div>
 
-<!-- HEADER -->
 <header>
-  <!-- SVG LOGO -->
-  <svg class="logo" viewBox="0 0 64 64" fill="none">
-    <rect x="4" y="18" width="36" height="18" rx="4" fill="#22c55e"/>
-    <rect x="40" y="24" width="20" height="12" rx="3" fill="#60a5fa"/>
-    <circle cx="18" cy="42" r="4" fill="white"/>
-    <circle cx="46" cy="42" r="4" fill="white"/>
-  </svg>
-
   <h1>HaulMatch</h1>
+  <p>The fastest way for trucking companies and drivers to connect nationwide</p>
 </header>
 
-<p class="tagline">
-  The fastest way for trucking companies and drivers to connect nationwide
-</p>
-
-<!-- HERO -->
 <section class="hero">
-  <h2>Find loads. Hire drivers. Move freight — faster.</h2>
-
+  <p>Find loads. Hire drivers. Move freight — faster.</p>
   <div class="buttons">
-    <button class="btn btn-driver" onclick="alert('Driver signup coming next')">
-      I’m a Driver
-    </button>
-    <button class="btn btn-company" onclick="alert('Company signup coming next')">
-      I’m a Company
-    </button>
+    <button class="btn driver">I’m a Driver</button>
+    <button class="btn company">I’m a Company</button>
   </div>
 </section>
 
-<!-- REVIEWS BOTTOM -->
-<section class="reviews">
-  <div class="review">
-    <div class="review-header">
-      <img class="avatar" src="https://randomuser.me/api/portraits/men/32.jpg">
-      <div>
-        <div class="name">Mike T.</div>
-        <div class="stars">★★★★★</div>
-      </div>
-    </div>
-    <p>Found a regional driving job in under 48 hours. Best pay I’ve seen.</p>
-  </div>
+<!-- FLOATING REVIEWS -->
+<div class="bubble" style="left:5%; animation-delay:0s">
+  <h4>Mike T.</h4>
+  <div class="stars">★★★★★</div>
+  <p>Found a regional job in under 48 hours.</p>
+</div>
 
-  <div class="review">
-    <div class="review-header">
-      <img class="avatar" src="https://randomuser.me/api/portraits/women/44.jpg">
-      <div>
-        <div class="name">Sarah L.</div>
-        <div class="stars">★★★★★</div>
-      </div>
-    </div>
-    <p>Everything is trucking-focused. No spam. No nonsense.</p>
-  </div>
+<div class="bubble" style="left:25%; animation-delay:3s">
+  <h4>Sarah L.</h4>
+  <div class="stars">★★★★★</div>
+  <p>Way better than Indeed or Facebook groups.</p>
+</div>
 
-  <div class="review">
-    <div class="review-header">
-      <img class="avatar" src="https://randomuser.me/api/portraits/men/61.jpg">
-      <div>
-        <div class="name">Fleet Owner</div>
-        <div class="stars">★★★★★</div>
-      </div>
-    </div>
-    <p>Hired two drivers in one week. Saved thousands.</p>
-  </div>
-</section>
+<div class="bubble" style="left:45%; animation-delay:6s">
+  <h4>Fleet Owner</h4>
+  <div class="stars">★★★★★</div>
+  <p>Hired two drivers in one week.</p>
+</div>
+
+<div class="bubble" style="left:65%; animation-delay:9s">
+  <h4>Jason R.</h4>
+  <div class="stars">★★★★★</div>
+  <p>No spam. Just trucking jobs.</p>
+</div>
+
+<div class="bubble" style="left:80%; animation-delay:12s">
+  <h4>Linda P.</h4>
+  <div class="stars">★★★★★</div>
+  <p>Saved us thousands in recruiting fees.</p>
+</div>
 
 </body>
 </html>
