@@ -15,12 +15,16 @@
       margin: 0;
       min-height: 100vh;
       color: white;
+
+      /* REAL FREIGHTLINER CASCADIA (Wikimedia Commons – public license) */
       background:
-        linear-gradient(rgba(15,20,40,0.65), rgba(15,20,40,0.9)),
-        url("https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=2000&q=80");
+        linear-gradient(rgba(12,16,32,0.78), rgba(12,16,32,0.92)),
+        url("https://upload.wikimedia.org/wikipedia/commons/6/6e/Freightliner_Cascadia_Truck.jpg");
+
       background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-attachment: fixed; /* THIS LOCKS IT */
     }
 
     header {
@@ -53,27 +57,29 @@
 
     .hero {
       min-height: 100vh;
-      padding-top: 140px;
+      padding-top: 150px;
       display: flex;
       flex-direction: column;
       align-items: center;
       text-align: center;
+      padding-left: 20px;
+      padding-right: 20px;
     }
 
     h1 {
       font-size: 56px;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
     }
 
     .subtitle {
-      max-width: 700px;
+      max-width: 720px;
       font-size: 18px;
+      line-height: 1.55;
       opacity: 0.95;
-      line-height: 1.5;
     }
 
     .buttons {
-      margin-top: 30px;
+      margin-top: 34px;
       display: flex;
       gap: 20px;
       flex-wrap: wrap;
@@ -81,11 +87,10 @@
     }
 
     .btn {
-      padding: 14px 30px;
+      padding: 14px 32px;
       border-radius: 999px;
       font-size: 16px;
       font-weight: 700;
-      border: none;
       cursor: pointer;
       transition: all 0.25s ease;
       text-decoration: none;
@@ -99,7 +104,7 @@
 
     .btn.driver:hover {
       transform: translateY(-2px);
-      box-shadow: 0 10px 25px rgba(74,222,128,0.4);
+      box-shadow: 0 12px 28px rgba(74,222,128,0.45);
     }
 
     .btn.company {
@@ -109,19 +114,17 @@
 
     .btn.company:hover {
       transform: translateY(-2px);
-      box-shadow: 0 10px 25px rgba(129,140,248,0.4);
+      box-shadow: 0 12px 28px rgba(129,140,248,0.45);
     }
 
     .reviews {
-      margin-top: 160px;
-      padding-bottom: 80px;
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 24px;
+      margin-top: 170px;
+      padding-bottom: 90px;
       max-width: 1200px;
       width: 100%;
-      padding-left: 40px;
-      padding-right: 40px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 26px;
     }
 
     @media (max-width: 1000px) {
@@ -138,9 +141,10 @@
 
     .review {
       background: rgba(255,255,255,0.14);
+      backdrop-filter: blur(12px);
       border-radius: 18px;
-      padding: 20px;
-      backdrop-filter: blur(10px);
+      padding: 22px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.4);
     }
 
     .review-header {
@@ -158,13 +162,13 @@
     }
 
     .stars {
-      color: gold;
+      color: #facc15;
       font-size: 14px;
     }
 
     .review p {
       font-size: 14px;
-      line-height: 1.5;
+      line-height: 1.55;
       opacity: 0.95;
     }
   </style>
@@ -205,8 +209,8 @@
         </div>
       </div>
       <p>
-        I was tired of expired listings and recruiters. HaulMatch connected me
-        directly with a regional carrier that fit my experience and home-time needs.
+        HaulMatch connected me directly with a regional carrier that fit my
+        experience and home-time needs. No recruiters, no spam.
       </p>
     </div>
 
@@ -219,8 +223,8 @@
         </div>
       </div>
       <p>
-        This platform actually understands trucking. I spoke directly with fleet
-        managers and secured a contract that fit my operation perfectly.
+        I spoke directly with fleet managers and secured a contract that fit my
+        operation perfectly. This platform understands trucking.
       </p>
     </div>
 
@@ -233,8 +237,8 @@
         </div>
       </div>
       <p>
-        We hired two qualified drivers within a week. No noise, no wasted time —
-        just serious candidates.
+        We hired two qualified drivers within a week. No wasted time — just
+        serious candidates.
       </p>
     </div>
 
