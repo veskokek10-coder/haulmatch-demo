@@ -10,7 +10,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Arial, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 html, body {
@@ -18,14 +18,20 @@ html, body {
   overflow-x: hidden;
 }
 
-/* 🔒 LOCKED FREIGHTLINER BACKGROUND */
-body {
-  background:
-    linear-gradient(rgba(8,15,35,0.75), rgba(8,15,35,0.75)),
-    url("https://images.unsplash.com/photo-1617727553252-65863c156eb3");
+/* 🔒 HARD-LOCKED BACKGROUND LAYER */
+.background {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background-image:
+    linear-gradient(rgba(10,18,40,0.72), rgba(10,18,40,0.72)),
+    url("https://images.unsplash.com/photo-1503376780353-7e6692767b70");
   background-size: cover;
   background-position: center;
-  background-attachment: fixed;
+}
+
+/* CONTENT */
+body {
   color: white;
 }
 
@@ -36,10 +42,11 @@ header {
   left: 0;
   width: 100%;
   padding: 22px 40px;
-  font-size: 26px;
-  font-weight: 800;
   display: flex;
   align-items: center;
+  gap: 10px;
+  font-size: 26px;
+  font-weight: 800;
   z-index: 10;
 }
 
@@ -48,18 +55,16 @@ header {
   height: 14px;
   background: #4cd964;
   border-radius: 4px;
-  margin-right: 10px;
 }
 
 /* HERO */
 .hero {
   min-height: 100vh;
+  padding: 140px 20px 140px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   text-align: center;
-  padding: 120px 20px 200px;
 }
 
 .hero h1 {
@@ -68,16 +73,15 @@ header {
 }
 
 .hero p {
-  max-width: 760px;
+  max-width: 780px;
   margin-bottom: 14px;
   font-size: 18px;
 }
 
 .hero .sub {
-  max-width: 720px;
-  margin-bottom: 40px;
   font-size: 16px;
   opacity: 0.9;
+  margin-bottom: 40px;
 }
 
 /* BUTTONS */
@@ -87,22 +91,22 @@ header {
 }
 
 .btn {
-  padding: 16px 44px;
-  border-radius: 20px;
+  padding: 16px 46px;
+  border-radius: 22px;
   font-size: 16px;
   font-weight: 700;
   border: none;
   cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: all 0.25s ease;
 }
 
 .btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 14px 30px rgba(0,0,0,0.45);
 }
 
 .driver {
-  background: linear-gradient(135deg, #5eea6a, #36c94f);
+  background: linear-gradient(135deg, #5eea6a, #32c850);
   color: #0b2b12;
 }
 
@@ -111,11 +115,10 @@ header {
   color: #0b1230;
 }
 
-/* REVIEWS — LOCKED TO BOTTOM */
+/* REVIEWS — SLIGHTLY HIGHER */
 .reviews {
-  position: relative;
   width: 100%;
-  padding: 60px 60px 120px;
+  padding: 40px 60px 90px; /* 👈 nudged UP */
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 26px;
@@ -125,7 +128,7 @@ header {
   background: rgba(255,255,255,0.18);
   padding: 26px;
   border-radius: 20px;
-  backdrop-filter: blur(8px);
+  backdrop-filter: blur(10px);
 }
 
 .review-header {
@@ -150,6 +153,8 @@ header {
 
 <body>
 
+<div class="background"></div>
+
 <header>
   <div class="logo-dot"></div>
   HaulMatch
@@ -164,8 +169,8 @@ header {
   </p>
 
   <p class="sub">
-    No job boards. No spam. Just real connections between drivers looking for
-    long-term work and companies hiring dependable professionals.
+    No job boards. No spam. Just real connections between drivers seeking long-term
+    work and companies hiring dependable professionals.
   </p>
 
   <div class="buttons">
@@ -181,8 +186,8 @@ header {
       <img src="https://randomuser.me/api/portraits/men/32.jpg">
       <div><strong>Mike T. — CDL-A Driver</strong><br><span class="stars">★★★★★</span></div>
     </div>
-    I was tired of expired listings and recruiters. HaulMatch connected me directly
-    with a regional carrier that actually matched my experience and home-time needs.
+    I was burned out on job boards. HaulMatch connected me directly with a carrier
+    that respected my experience and home-time needs.
   </div>
 
   <div class="review">
@@ -190,8 +195,8 @@ header {
       <img src="https://randomuser.me/api/portraits/women/44.jpg">
       <div><strong>Sarah L. — Owner Operator</strong><br><span class="stars">★★★★★</span></div>
     </div>
-    This platform understands trucking. I spoke directly with fleet managers and
-    secured a contract that fits my operation perfectly.
+    Finally a platform that understands trucking. Real conversations with fleet
+    managers — not endless applications.
   </div>
 
   <div class="review">
@@ -199,7 +204,7 @@ header {
       <img src="https://randomuser.me/api/portraits/men/65.jpg">
       <div><strong>James R. — Fleet Owner</strong><br><span class="stars">★★★★★</span></div>
     </div>
-    We hired two qualified drivers within a week. No noise, no wasted time.
+    We hired two qualified drivers in under a week. No noise, no wasted time.
   </div>
 
   <div class="review">
@@ -215,7 +220,7 @@ header {
       <img src="https://randomuser.me/api/portraits/women/22.jpg">
       <div><strong>Amanda P. — Operations Manager</strong><br><span class="stars">★★★★★</span></div>
     </div>
-    We found drivers who actually matched our company culture.
+    We found drivers who actually fit our company culture.
   </div>
 
 </section>
