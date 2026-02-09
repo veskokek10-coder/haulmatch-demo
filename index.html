@@ -19,7 +19,7 @@ html, body {
   color: white;
 }
 
-/* BACKGROUND IMAGE – THIS WILL NOT DISAPPEAR */
+/* PERMANENT SEMI TRUCK BACKGROUND */
 .bg-truck {
   position: fixed;
   inset: 0;
@@ -36,7 +36,7 @@ html, body {
 .overlay {
   position: fixed;
   inset: 0;
-  background: rgba(10,18,40,0.75);
+  background: rgba(10,18,40,0.78);
   z-index: -1;
 }
 
@@ -65,7 +65,7 @@ header {
 /* HERO */
 .hero {
   min-height: 100vh;
-  padding: 140px 20px 120px;
+  padding: 140px 20px 80px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -78,7 +78,7 @@ header {
 }
 
 .hero p {
-  max-width: 780px;
+  max-width: 800px;
   margin-bottom: 14px;
   font-size: 18px;
 }
@@ -86,7 +86,7 @@ header {
 .hero .sub {
   font-size: 16px;
   opacity: 0.9;
-  margin-bottom: 40px;
+  margin-bottom: 42px;
 }
 
 /* BUTTONS */
@@ -96,8 +96,8 @@ header {
 }
 
 .btn {
-  padding: 16px 46px;
-  border-radius: 24px;
+  padding: 16px 48px;
+  border-radius: 26px;
   font-size: 16px;
   font-weight: 700;
   border: none;
@@ -106,8 +106,8 @@ header {
 }
 
 .btn:hover {
-  transform: translateY(-3px) scale(1.03);
-  box-shadow: 0 14px 30px rgba(0,0,0,0.45);
+  transform: translateY(-3px) scale(1.04);
+  box-shadow: 0 16px 34px rgba(0,0,0,0.45);
 }
 
 .driver {
@@ -120,9 +120,10 @@ header {
   color: #0b1230;
 }
 
-/* REVIEWS */
+/* REVIEWS (MOVED UP SLIGHTLY) */
 .reviews {
   width: 100%;
+  margin-top: -60px; /* moves reviews UP ~1 inch */
   padding: 40px 60px 80px;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -131,8 +132,8 @@ header {
 
 .review {
   background: rgba(255,255,255,0.18);
-  padding: 26px;
-  border-radius: 20px;
+  padding: 28px;
+  border-radius: 22px;
   backdrop-filter: blur(10px);
 }
 
@@ -144,8 +145,8 @@ header {
 }
 
 .review-header img {
-  width: 52px;
-  height: 52px;
+  width: 54px;
+  height: 54px;
   border-radius: 50%;
 }
 
@@ -158,9 +159,9 @@ header {
 
 <body>
 
-<!-- HARD-LOCKED SEMI TRUCK -->
+<!-- SEMI TRUCK BACKGROUND (LOCKED) -->
 <div class="bg-truck">
-  <img src="https://images.pexels.com/photos/2199293/pexels-photo-2199293.jpeg" alt="Semi Truck">
+  <img src="https://images.pexels.com/photos/2199293/pexels-photo-2199293.jpeg" alt="Freightliner Semi Truck">
 </div>
 <div class="overlay"></div>
 
@@ -178,13 +179,17 @@ header {
   </p>
 
   <p class="sub">
-    No job boards. No spam. Just real connections between drivers seeking long-term
-    work and companies hiring dependable professionals.
+    No job boards. No spam. Just real, direct connections between drivers seeking
+    long-term work and companies hiring dependable professionals.
   </p>
 
   <div class="buttons">
-    <button class="btn driver">I’m a Driver</button>
-    <button class="btn company">I’m a Company</button>
+    <button class="btn driver" onclick="location.href='/driver-signup'">
+      I’m a Driver
+    </button>
+    <button class="btn company" onclick="location.href='/company-signup'">
+      I’m a Company
+    </button>
   </div>
 </section>
 
@@ -195,7 +200,8 @@ header {
       <img src="https://randomuser.me/api/portraits/men/32.jpg">
       <div><strong>Mike T. — CDL-A Driver</strong><br><span class="stars">★★★★★</span></div>
     </div>
-    Connected with a carrier that respected my experience and home-time needs.
+    I was tired of expired listings and recruiters. HaulMatch connected me directly
+    with a regional carrier that respected my experience and home-time needs.
   </div>
 
   <div class="review">
@@ -203,7 +209,8 @@ header {
       <img src="https://randomuser.me/api/portraits/women/44.jpg">
       <div><strong>Sarah L. — Owner Operator</strong><br><span class="stars">★★★★★</span></div>
     </div>
-    Finally a platform that understands trucking.
+    This platform actually understands trucking. I spoke directly with fleet
+    managers and secured a contract that fit my operation perfectly.
   </div>
 
   <div class="review">
@@ -211,7 +218,8 @@ header {
       <img src="https://randomuser.me/api/portraits/men/65.jpg">
       <div><strong>James R. — Fleet Owner</strong><br><span class="stars">★★★★★</span></div>
     </div>
-    Two drivers hired in under a week.
+    We hired two qualified drivers within a week. No noise, no wasted time —
+    just real conversations with serious professionals.
   </div>
 
   <div class="review">
@@ -219,15 +227,17 @@ header {
       <img src="https://randomuser.me/api/portraits/men/12.jpg">
       <div><strong>Daniel K. — Regional Driver</strong><br><span class="stars">★★★★★</span></div>
     </div>
-    Clear pay, clear routes, no guessing.
+    Pay, routes, and expectations were clear from day one. I didn’t have to chase
+    anyone down or guess what I was signing up for.
   </div>
 
   <div class="review">
     <div class="review-header">
       <img src="https://randomuser.me/api/portraits/women/22.jpg">
-      <div><strong>Amanda P. — Ops Manager</strong><br><span class="stars">★★★★★</span></div>
+      <div><strong>Amanda P. — Operations Manager</strong><br><span class="stars">★★★★★</span></div>
     </div>
-    Drivers actually matched our culture.
+    We found drivers who actually matched our company culture. The conversations
+    felt professional — not like scrolling through random resumes.
   </div>
 
 </section>
