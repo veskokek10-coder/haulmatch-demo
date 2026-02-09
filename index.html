@@ -16,15 +16,41 @@
 body {
   min-height: 100vh;
   color: white;
-  background:
-    linear-gradient(rgba(10,14,30,0.75), rgba(10,14,30,0.85)),
-    url("https://images.unsplash.com/photo-1604014237800-1c9102c219da?auto=format&fit=crop&w=1920&q=80");
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
+  overflow-x: hidden;
 }
 
-/* MAIN HERO */
+/* VIDEO BACKGROUND */
+.video-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+  overflow: hidden;
+}
+
+.video-bg video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* DARK OVERLAY */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    rgba(10,14,30,0.75),
+    rgba(10,14,30,0.85)
+  );
+  z-index: -1;
+}
+
+/* HERO */
 .hero {
   min-height: 100vh;
   display: flex;
@@ -43,15 +69,14 @@ body {
 
 .hero p {
   font-size: 1.1rem;
-  opacity: 0.9;
-  max-width: 620px;
+  opacity: 0.95;
+  max-width: 650px;
   margin-bottom: 30px;
 }
 
 .buttons {
   display: flex;
   gap: 18px;
-  margin-bottom: 80px;
 }
 
 .btn {
@@ -65,7 +90,7 @@ body {
 
 .btn:hover {
   transform: translateY(-3px);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.35);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
 }
 
 .driver {
@@ -121,17 +146,28 @@ body {
 .review p {
   font-size: 0.95rem;
   line-height: 1.45;
-  opacity: 0.95;
 }
 </style>
 </head>
 
 <body>
 
+<!-- VIDEO BACKGROUND -->
+<div class="video-bg">
+  <video autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1604014237800-1c9102c219da?auto=format&fit=crop&w=1920&q=80">
+    <source src="https://cdn.coverr.co/videos/coverr-semi-truck-driving-on-highway-9283/1080p.mp4" type="video/mp4">
+  </video>
+</div>
+
+<div class="overlay"></div>
+
+<!-- HERO -->
 <section class="hero">
   <h1>HaulMatch</h1>
-  <p>The fastest way for trucking companies and drivers to connect nationwide.
-     Built for real freight, real drivers, and real results.</p>
+  <p>
+    The fastest way for trucking companies and drivers to connect nationwide.
+    Built for real freight, real drivers, and real results.
+  </p>
 
   <div class="buttons">
     <button class="btn driver">I’m a Driver</button>
@@ -139,6 +175,7 @@ body {
   </div>
 </section>
 
+<!-- REVIEWS -->
 <section class="reviews">
   <div class="review-grid">
 
@@ -150,10 +187,7 @@ body {
           <div class="stars">★★★★★</div>
         </div>
       </div>
-      <p>
-        Found a regional CDL job in under 48 hours. Pay was better than anything
-        I saw on Indeed or job boards. HaulMatch actually understands trucking.
-      </p>
+      <p>Found a regional CDL job in under 48 hours with higher pay than any job board.</p>
     </div>
 
     <div class="review">
@@ -164,10 +198,7 @@ body {
           <div class="stars">★★★★★</div>
         </div>
       </div>
-      <p>
-        Way better than Facebook groups. No spam, no fake listings —
-        just real trucking jobs from real companies.
-      </p>
+      <p>No spam, no fake posts — just legit trucking jobs and serious companies.</p>
     </div>
 
     <div class="review">
@@ -178,10 +209,7 @@ body {
           <div class="stars">★★★★★</div>
         </div>
       </div>
-      <p>
-        Applied to two companies and got callbacks the same week.
-        This platform saves serious time.
-      </p>
+      <p>I applied and got calls the same week. This platform saves real time.</p>
     </div>
 
     <div class="review">
@@ -192,10 +220,7 @@ body {
           <div class="stars">★★★★★</div>
         </div>
       </div>
-      <p>
-        We hired two qualified drivers in one week and saved thousands
-        in recruiter fees. HaulMatch paid for itself instantly.
-      </p>
+      <p>Hired two drivers in one week and cut recruiter costs completely.</p>
     </div>
 
     <div class="review">
@@ -206,10 +231,7 @@ body {
           <div class="stars">★★★★★</div>
         </div>
       </div>
-      <p>
-        Clean interface, real people, and quality companies.
-        I recommend HaulMatch to every driver I know.
-      </p>
+      <p>Clean design, real people, and trucking-focused listings.</p>
     </div>
 
     <div class="review">
@@ -220,10 +242,7 @@ body {
           <div class="stars">★★★★★</div>
         </div>
       </div>
-      <p>
-        Finally a platform built for trucking — not generic job boards.
-        The companies here are higher quality.
-      </p>
+      <p>Finally a trucking platform that feels professional.</p>
     </div>
 
   </div>
