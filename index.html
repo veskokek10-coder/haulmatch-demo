@@ -16,13 +16,13 @@
       min-height: 100vh;
       color: white;
 
-      /* 🔒 REAL SEMI TRUCK BACKGROUND (WORKING LINK) */
+      /* 🔒 FIXED FREIGHTLINER CASCADIA BACKGROUND (NEVER CHANGES) */
       background:
-        linear-gradient(rgba(15,20,40,0.8), rgba(15,20,40,0.95)),
-        url("https://images.unsplash.com/photo-1601564593175-193602a4c73f?auto=format&fit=crop&w=2400&q=80");
+        linear-gradient(rgba(15,20,40,0.85), rgba(15,20,40,0.95)),
+        url("https://images.unsplash.com/photo-1616628182506-2e3fa5c0e5c0?auto=format&fit=crop&w=2400&q=80");
 
       background-size: cover;
-      background-position: center;
+      background-position: center center;
       background-repeat: no-repeat;
       background-attachment: fixed;
     }
@@ -57,7 +57,7 @@
 
     .hero {
       min-height: 100vh;
-      padding-top: 140px;
+      padding-top: 150px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -99,9 +99,19 @@
       color: #06220f;
     }
 
+    .btn.driver:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(74,222,128,0.45);
+    }
+
     .btn.company {
       background: #818cf8;
       color: #0b0f3b;
+    }
+
+    .btn.company:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(129,140,248,0.45);
     }
 
     .reviews {
@@ -115,15 +125,11 @@
     }
 
     @media (max-width: 1000px) {
-      .reviews {
-        grid-template-columns: repeat(2, 1fr);
-      }
+      .reviews { grid-template-columns: repeat(2, 1fr); }
     }
 
     @media (max-width: 600px) {
-      .reviews {
-        grid-template-columns: 1fr;
-      }
+      .reviews { grid-template-columns: 1fr; }
     }
 
     .review {
@@ -131,19 +137,27 @@
       backdrop-filter: blur(12px);
       border-radius: 18px;
       padding: 22px;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.4);
     }
 
     .review-header {
-      font-weight: 700;
-      margin-bottom: 6px;
-      font-size: 14px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+
+    .review-header img {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      object-fit: cover;
     }
 
     .stars {
       color: #facc15;
       font-size: 14px;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
     }
 
     .review p {
@@ -157,7 +171,7 @@
 <body>
 
 <header>
-  <a href="#">
+  <a href="index.html">
     <div class="logo-dot"></div>
     HaulMatch
   </a>
@@ -169,7 +183,7 @@
   <p class="subtitle">
     A hiring platform built specifically for the trucking industry — connecting
     professional drivers with verified trucking companies.
-    <br><br>
+    <br /><br />
     No job boards. No spam. Just real connections between drivers and carriers.
   </p>
 
@@ -180,38 +194,55 @@
 
   <div class="reviews">
     <div class="review">
-      <div class="review-header">Mike T. — CDL-A Driver</div>
-      <div class="stars">★★★★★</div>
+      <div class="review-header">
+        <img src="https://randomuser.me/api/portraits/men/32.jpg" />
+        <div>
+          <strong>Mike T. — CDL-A Driver</strong>
+          <div class="stars">★★★★★</div>
+        </div>
+      </div>
       <p>
-        HaulMatch connected me directly with a regional carrier that fit my
-        experience and home-time needs. No recruiters, no spam.
+        HaulMatch connected me directly with a regional carrier. No recruiters,
+        no spam.
       </p>
     </div>
 
     <div class="review">
-      <div class="review-header">Sarah L. — Owner Operator</div>
-      <div class="stars">★★★★★</div>
+      <div class="review-header">
+        <img src="https://randomuser.me/api/portraits/women/45.jpg" />
+        <div>
+          <strong>Sarah L. — Owner Operator</strong>
+          <div class="stars">★★★★★</div>
+        </div>
+      </div>
       <p>
-        I spoke directly with fleet managers and secured a contract that fit my
-        operation perfectly. This platform actually understands trucking.
+        This platform actually understands trucking and connects you directly.
       </p>
     </div>
 
     <div class="review">
-      <div class="review-header">James R. — Fleet Owner</div>
-      <div class="stars">★★★★★</div>
+      <div class="review-header">
+        <img src="https://randomuser.me/api/portraits/men/54.jpg" />
+        <div>
+          <strong>James R. — Fleet Owner</strong>
+          <div class="stars">★★★★★</div>
+        </div>
+      </div>
       <p>
-        We hired two qualified drivers within a week. No wasted time — just
-        serious candidates.
+        Two qualified drivers hired in one week. No wasted time.
       </p>
     </div>
 
     <div class="review">
-      <div class="review-header">Daniel K. — Regional Driver</div>
-      <div class="stars">★★★★★</div>
+      <div class="review-header">
+        <img src="https://randomuser.me/api/portraits/men/71.jpg" />
+        <div>
+          <strong>Daniel K. — Regional Driver</strong>
+          <div class="stars">★★★★★</div>
+        </div>
+      </div>
       <p>
-        Pay, routes, and expectations were clear from day one. HaulMatch is the
-        best trucking platform I’ve used.
+        Best trucking hiring platform I’ve used so far.
       </p>
     </div>
   </div>
